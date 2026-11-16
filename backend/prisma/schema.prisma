@@ -1,0 +1,165 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  EMPLOYEE
+  MANAGER
+  HR
+}
+enum OpportunityStatus {
+  OPEN
+  CLOSED
+  DRAFT
+}
+enum ApplicationStatus {
+  APPLIED
+  REVIEWING
+  SHORTLISTED
+  REJECTED
+  ASSIGNED
+  COMPLETED
+}
+enum RecordStatus {
+  PLANNED
+  PENDING
+  IN_PROGRESS
+  COMPLETED
+  ON_HOLD
+}
+enum RecordType {
+  PROJECT
+  MENTORSHIP
+  COURSE
+  ACHIEVEMENT
+  CERTIFICATION
+  OTHER
+}
+
+model User {
+  id String @id @default(cuid())
+  name String
+  email String @unique
+  passwordHash String
+  role Role @default(EMPLOYEE)
+  department String?
+  designation String?
+  experienceYears Int @default(0)
+  joiningDate DateTime?
+  careerGoal String?
+  performanceScore Int?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  skills Skill[]
+  opportunities Opportunity[] @relation("CreatedOpportunities")
+  applications Application[]
+  records GrowthRecord[]
+  passportVersions PassportVersion[]
+  assignments Assignment[] @relation("EmployeeAssignments")
+  managedAssignments Assignment[] @relation("ManagerAssignments")
+}
+
+model Skill {
+  id String @id @default(cuid())
+  name String
+  level Int
+  verified Boolean @default(false)
+  userId String
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  @@unique([userId, name])
+  @@index([name])
+}
+
+model Opportunity {
+  id String @id @default(cuid())
+  title String
+  type String @default("Project")
+  domain String
+  department String?
+  description String
+  minExperience Int @default(0)
+  duration String?
+  openPositions Int @default(1)
+  status OpportunityStatus @default(OPEN)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  creatorId String
+  creator User @relation("CreatedOpportunities", fields: [creatorId], references: [id])
+  requiredSkills OpportunitySkill[]
+  applications Application[]
+  assignments Assignment[]
+  @@index([status, domain])
+}
+
+model OpportunitySkill {
+  id String @id @default(cuid())
+  name String
+  level Int
+  opportunityId String
+  opportunity Opportunity @relation(fields: [opportunityId], references: [id], onDelete: Cascade)
+  @@unique([opportunityId, name])
+}
+
+model Application {
+  id String @id @default(cuid())
+  status ApplicationStatus @default(APPLIED)
+  matchScore Int
+  matchReason String?
+  appliedAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  employeeId String
+  employee User @relation(fields: [employeeId], references: [id], onDelete: Cascade)
+  opportunityId String
+  opportunity Opportunity @relation(fields: [opportunityId], references: [id], onDelete: Cascade)
+  @@unique([employeeId, opportunityId])
+  @@index([opportunityId, status])
+}
+
+model Assignment {
+  id String @id @default(cuid())
+  status String @default("IN_PROGRESS")
+  assignedAt DateTime @default(now())
+  employeeId String
+  employee User @relation("EmployeeAssignments", fields: [employeeId], references: [id])
+  managerId String
+  manager User @relation("ManagerAssignments", fields: [managerId], references: [id])
+  opportunityId String
+  opportunity Opportunity @relation(fields: [opportunityId], references: [id])
+  @@unique([employeeId, opportunityId])
+}
+
+model GrowthRecord {
+  id String @id @default(cuid())
+  type RecordType
+  title String
+  details String?
+  date DateTime @default(now())
+  status RecordStatus @default(PENDING)
+  userId String
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  stamps GrowthStamp[]
+  @@index([userId, date])
+}
+
+model GrowthStamp {
+  id String @id @default(cuid())
+  skill String
+  source String
+  date DateTime @default(now())
+  recordId String
+  record GrowthRecord @relation(fields: [recordId], references: [id], onDelete: Cascade)
+}
+
+model PassportVersion {
+  id String @id @default(cuid())
+  snapshot Json
+  generatedAt DateTime @default(now())
+  userId String
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  @@index([userId, generatedAt])
+}

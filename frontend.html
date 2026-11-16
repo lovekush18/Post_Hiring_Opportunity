@@ -1,0 +1,2012 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Passage — Post-Hiring Opportunities</title>
+<style>
+  :root{
+    --bg:#FAFAFA;
+    --surface:#FFFFFF;
+    --border:#E5E5E5;
+    --text:#1A1A1A;
+    --text-muted:#767676;
+    --primary:#2F6F4E;
+    --primary-hover:#255A3F;
+    --primary-soft:#E9F3EC;
+    --warn:#B5651D;
+    --warn-soft:#FBEEE0;
+    --info:#3B6FA0;
+    --info-soft:#E9F1F8;
+    --danger:#B3413B;
+    --radius:8px;
+    --sans:-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--sans);
+    -webkit-font-smoothing:antialiased;
+    min-height:100vh;
+    line-height:1.5;
+  }
+  h1,h2,h3,h4{font-family:var(--sans); font-weight:600; margin:0; color:var(--text); letter-spacing:-0.01em;}
+  p{margin:0;}
+  button{font-family:var(--sans); cursor:pointer;}
+  a{color:inherit;}
+
+  .app{min-height:100vh; display:flex; flex-direction:column;}
+  .hidden{display:none !important;}
+
+  /* ---------- LANDING ---------- */
+  #view-landing{overflow:hidden; background:radial-gradient(ellipse at 82% 18%,rgba(222,240,226,.68),transparent 31%),var(--bg);}
+  #view-landing .topbar{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:20px 6vw; max-width:1180px; margin:0 auto; width:100%;
+  }
+  .brand{display:flex; align-items:center; gap:9px; font-size:17px; font-weight:700;}
+  .brand-mark{width:30px; height:30px; border-radius:9px; background:var(--primary); display:flex; align-items:center; justify-content:center; box-shadow:0 4px 10px rgba(47,111,78,.2);}
+  .brand-mark svg{width:15px; height:15px;}
+  #view-landing .topbar nav{display:flex; align-items:center; gap:28px; margin-left:auto; margin-right:28px;}
+  #view-landing .topbar nav a{font-size:13px; font-weight:550; color:var(--text-muted); text-decoration:none; transition:color .18s ease;}
+  #view-landing .topbar nav a:hover{color:var(--primary);}
+
+  .btn{
+    border:none; border-radius:var(--radius); padding:10px 18px; font-size:14px; font-weight:600;
+    display:inline-flex; align-items:center; gap:8px;
+  }
+  .btn-primary{background:var(--primary); color:#fff;}
+  .btn-primary:hover{background:var(--primary-hover);}
+  .btn-ghost{background:transparent; color:var(--text); border:1px solid var(--border);}
+  .btn-ghost:hover{border-color:var(--text-muted);}
+  #view-landing .btn{transition:transform .18s ease, box-shadow .18s ease, background .18s ease;}
+  #view-landing .btn:hover{transform:translateY(-2px);}
+  #view-landing .btn-primary{background:var(--primary); color:#fff; box-shadow:0 6px 16px rgba(47,111,78,.16);}
+  #view-landing .btn-primary:hover{background:var(--primary-hover); box-shadow:0 9px 20px rgba(47,111,78,.22);}
+  #view-landing .btn-ghost{background:rgba(255,255,255,.72); color:var(--text); border:1px solid var(--border);}
+  #view-landing .btn-ghost:hover{border-color:#b9c9bd; background:#fff;}
+  .btn-small{padding:7px 13px; font-size:13px; border-radius:6px;}
+
+  .hero{
+    max-width:1180px; margin:0 auto; padding:76px 6vw 82px; width:100%;
+    display:grid; grid-template-columns:1.04fr .96fr; align-items:center; gap:50px;
+  }
+  .hero-copy{max-width:570px;}
+  .hero-eyebrow{display:inline-flex; align-items:center; gap:8px; padding:7px 11px; border:1px solid #d6e5d9; border-radius:999px; background:rgba(255,255,255,.72); color:var(--primary); font-size:12px; font-weight:650; letter-spacing:.02em;}
+  .hero-eyebrow .live-dot{width:7px; height:7px; border-radius:50%; background:#4d9b68; box-shadow:0 0 0 3px #e4f2e7;}
+  .hero h1{margin-top:20px; font-size:clamp(40px,5.25vw,64px); line-height:1.06; letter-spacing:-.055em;}
+  .hero h1 em{color:var(--primary); font-style:normal;}
+  .hero .lede{margin-top:20px; font-size:16px; color:var(--text-muted); max-width:48ch; line-height:1.75;}
+  .hero .cta-row{margin-top:28px; display:flex; gap:12px; flex-wrap:wrap;}
+  .hero .cta-row .btn{min-height:46px; padding-left:20px; padding-right:20px;}
+  .hero .microcopy{margin-top:16px; font-size:12.5px; color:var(--text-muted); display:flex; align-items:center; gap:7px;}
+  .hero .microcopy svg{width:15px; height:15px; color:var(--primary); flex:none;}
+  .hero-preview{position:relative; min-width:0; padding:18px; border:1px solid rgba(47,111,78,.12); border-radius:24px; background:linear-gradient(145deg,#f0f7f1,#e8f1e9); box-shadow:0 24px 70px rgba(30,65,41,.12);}
+  .preview-window{overflow:hidden; border:1px solid #e8ece8; border-radius:16px; background:#fff; box-shadow:0 12px 30px rgba(26,48,32,.08);}
+  .preview-top{display:flex; align-items:center; justify-content:space-between; padding:16px 18px; border-bottom:1px solid #edf0ed;}
+  .preview-brand{display:flex; align-items:center; gap:8px; font-size:12px; font-weight:700;}
+  .preview-brand .brand-mark{width:23px; height:23px; border-radius:7px;}
+  .preview-brand .brand-mark svg{width:12px; height:12px;}
+  .preview-status{padding:5px 8px; border-radius:999px; background:#eef7ef; color:#39764c; font-size:10px; font-weight:650;}
+  .preview-content{padding:22px;}
+  .preview-kicker{font-size:10px; color:var(--text-muted); font-weight:650; letter-spacing:.09em; text-transform:uppercase;}
+  .preview-title-row{display:flex; align-items:flex-start; justify-content:space-between; gap:14px; margin-top:7px;}
+  .preview-title-row h3{font-size:18px; letter-spacing:-.03em;}
+  .preview-title-row p{margin-top:3px; color:var(--text-muted); font-size:11px;}
+  .preview-score{flex:none; min-width:57px; text-align:center; padding:8px 7px; border:1px solid #d9e9dc; border-radius:12px; background:#f3f9f4; color:var(--primary); font-weight:750; font-size:18px; line-height:1.1;}
+  .preview-score small{display:block; margin-top:4px; color:#64806a; font-size:8px; font-weight:650; letter-spacing:.05em; text-transform:uppercase;}
+  .preview-divider{height:1px; margin:19px 0 15px; background:#edf0ed;}
+  .preview-label{font-size:10px; color:#67736a; font-weight:650;}
+  .preview-skills{display:flex; flex-wrap:wrap; gap:7px; margin-top:9px;}
+  .preview-skills span{padding:6px 9px; border-radius:7px; background:#f3f6f3; color:#56635a; font-size:10px; font-weight:550;}
+  .preview-match{display:flex; align-items:center; gap:11px; margin-top:18px; padding:12px; border:1px solid #e3eee5; border-radius:11px; background:#f8fbf8;}
+  .preview-check{width:29px; height:29px; flex:none; display:grid; place-items:center; border-radius:9px; background:#e6f2e8; color:var(--primary);}
+  .preview-check svg{width:15px; height:15px;}
+  .preview-match strong{display:block; font-size:10.5px;}
+  .preview-match p{margin-top:2px; color:var(--text-muted); font-size:9.5px;}
+  .preview-float{position:absolute; right:-20px; bottom:34px; display:flex; align-items:center; gap:9px; padding:11px 14px; border:1px solid #edf0ed; border-radius:12px; background:#fff; box-shadow:0 10px 28px rgba(26,48,32,.12);}
+  .preview-float-icon{width:28px; height:28px; display:grid; place-items:center; border-radius:9px; background:#fff4e8; color:#a66a2b; font-size:14px;}
+  .preview-float strong{display:block; font-size:10px;}
+  .preview-float span{display:block; margin-top:2px; color:var(--text-muted); font-size:9px;}
+
+  .why-strip{border-top:1px solid #e9ede9; border-bottom:1px solid #e9ede9; background:rgba(255,255,255,.84);}
+  .why-inner{max-width:1180px; margin:0 auto; padding:38px 6vw; display:grid; grid-template-columns:repeat(4,1fr); gap:24px;}
+  .why-item{padding:5px 0;}
+  .why-item h3{font-size:14px; font-weight:650; margin-bottom:5px; letter-spacing:-.02em;}
+  .why-item p{color:var(--text-muted); font-size:12px; line-height:1.65;}
+  .why-item .num{color:var(--primary); background:var(--primary-soft); border-radius:7px; padding:4px 7px; font-size:10px; font-weight:750; margin-bottom:11px; display:inline-flex;}
+
+  .role-section{max-width:1180px; margin:0 auto; padding:66px 6vw 76px;}
+  .role-section > h2{font-size:clamp(24px,3vw,32px); text-align:center; letter-spacing:-.04em;}
+  .role-section > p.sub{color:var(--text-muted); margin-top:9px; text-align:center; font-size:14px; max-width:52ch; margin-left:auto; margin-right:auto;}
+  .role-cards{margin-top:34px; display:grid; grid-template-columns:repeat(3,1fr); gap:16px;}
+  .role-card{
+    position:relative; overflow:hidden; background:rgba(255,255,255,.88); border:1px solid var(--border); border-radius:14px; padding:24px;
+    display:flex; flex-direction:column; gap:12px; min-height:270px; transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+  }
+  .role-card:hover{transform:translateY(-4px); border-color:#cdddcf; box-shadow:0 14px 32px rgba(30,65,41,.08);}
+  .role-card .tag{
+    align-self:flex-start; font-size:10px; font-weight:700; padding:5px 9px; border-radius:6px; text-transform:uppercase; letter-spacing:.06em;
+  }
+  .tag-employee{background:var(--info-soft); color:var(--info);}
+  .tag-manager{background:var(--warn-soft); color:var(--warn);}
+  .tag-hr{background:var(--primary-soft); color:var(--primary);}
+  .role-card h3{font-size:16.5px;}
+  .role-card p{color:var(--text-muted); font-size:14px;}
+  .role-card ul{margin:0; padding-left:16px; font-size:13px; color:var(--text-muted); line-height:1.7;}
+  .role-card .go{margin-top:auto;}
+
+  footer.site{border-top:1px solid var(--border); padding:22px 6vw; font-size:12px; color:var(--text-muted); display:flex; justify-content:space-between; max-width:1180px; margin:0 auto; width:100%;}
+
+  @media (max-width:880px){
+    .hero{grid-template-columns:1fr; gap:36px; max-width:720px; padding-top:58px; padding-bottom:60px;}
+    .hero-copy{text-align:center; margin:0 auto;}
+    .hero .lede{margin-left:auto; margin-right:auto;}
+    .hero .cta-row{justify-content:center;}
+    .hero .microcopy{justify-content:center;}
+    .hero-preview{max-width:500px; width:100%; margin:0 auto;}
+    .why-inner{grid-template-columns:repeat(2,1fr);}
+    .role-cards{grid-template-columns:repeat(2,1fr);}
+  }
+  @media (max-width:560px){
+    #view-landing .topbar{padding:16px 20px;}
+    #view-landing .topbar nav{display:none;}
+    .hero{padding:48px 22px 54px; gap:34px;}
+    .hero h1{font-size:clamp(38px,11vw,52px);}
+    .hero .lede{font-size:14px;}
+    .hero .cta-row{flex-direction:column;}
+    .hero .cta-row .btn{justify-content:center; width:100%;}
+    .hero .microcopy{font-size:11px;}
+    .hero-preview{padding:10px; border-radius:18px;}
+    .preview-content{padding:17px;}
+    .preview-float{right:-5px; bottom:20px; transform:scale(.88); transform-origin:right bottom;}
+    .why-inner{padding:30px 22px; gap:22px 16px;}
+    .why-item p{font-size:11px;}
+    .role-section{padding:48px 22px 54px;}
+    .role-cards{grid-template-columns:1fr; gap:12px; margin-top:25px;}
+    .role-card{min-height:0; padding:21px;}
+    footer.site{padding:18px 22px; flex-direction:column; gap:5px;}
+  }
+
+  /* ---------- AUTH ---------- */
+  #view-auth,#view-role-picker{min-height:100vh; display:flex; align-items:center; justify-content:center; padding:28px; background:radial-gradient(ellipse at 82% 10%,rgba(210,235,216,.72),transparent 35%),linear-gradient(145deg,#f7fbf7,#edf5ef);}
+  .auth-layout{width:min(980px,100%); min-height:610px; display:grid; grid-template-columns:.86fr 1.14fr; overflow:hidden; border:1px solid #e1e4f0; border-radius:22px; background:#fff; box-shadow:0 24px 70px rgba(37,44,86,.14);}
+  .auth-aside{position:relative; isolation:isolate; display:flex; flex-direction:column; justify-content:space-between; overflow:hidden; padding:34px; color:#fff; background:linear-gradient(145deg,#2F6F4E,#255A3F 70%,#1d4932);}
+  .auth-brand{display:flex; align-items:center; gap:9px; font-size:17px; font-weight:750; letter-spacing:-.03em;}
+  .auth-brand .brand-mark{background:rgba(255,255,255,.16); box-shadow:none;}
+  .auth-aside-copy{z-index:1; margin:45px 0;}
+  .auth-aside-copy .eyebrow{display:inline-flex; align-items:center; gap:7px; color:#c9d2ff; font-size:10px; font-weight:700; letter-spacing:.12em; text-transform:uppercase;}
+  .auth-aside-copy h2{margin:15px 0 11px; max-width:10ch; color:#fff; font-size:clamp(34px,4vw,47px); line-height:1.04; letter-spacing:-.055em;}
+  .auth-aside-copy h2 span{color:#c9d2ff;}
+  .auth-aside-copy p{max-width:34ch; color:#d9def3; font-size:13px; line-height:1.75;}
+  .auth-points{display:grid; gap:13px; margin:25px 0 0; padding:0; list-style:none;}
+  .auth-points li{display:flex; align-items:center; gap:9px; color:#f2f4ff; font-size:11.5px;}
+  .auth-points li span{width:20px; height:20px; display:grid; place-items:center; border-radius:50%; background:rgba(201,210,255,.17); color:#d4dcff;}
+  .auth-aside-foot{z-index:1; color:#cbd2ed; font-size:10.5px;}
+  .auth-orbit{position:absolute; z-index:-1; right:-130px; bottom:62px; width:320px; height:320px; border:1px solid #c9d2ff26; border-radius:50%; box-shadow:0 0 0 38px #c9d2ff0a,0 0 0 76px #c9d2ff08;}
+  .auth-main{display:flex; flex-direction:column; justify-content:space-between; padding:28px clamp(26px,5vw,58px) 20px;}
+  .back-link{display:inline-flex; align-items:center; gap:6px; width:max-content; font-size:12px; color:var(--text-muted); margin-bottom:14px; background:none; border:none; padding:0;}
+  .back-link:hover{color:var(--primary);}
+  .auth-content{width:100%; max-width:390px; margin:auto; padding:12px 0 20px;}
+  .auth-kicker{display:block; color:var(--primary); font-size:10px; font-weight:750; letter-spacing:.13em; text-transform:uppercase;}
+  .auth-content h1{margin-top:8px; font-size:29px; letter-spacing:-.045em;}
+  .auth-content .sub{color:var(--text-muted); margin-top:6px; font-size:13px; line-height:1.6;}
+  .auth-form{margin-top:21px;}
+  .auth-field{margin-top:13px;}
+  .auth-field label{display:block; font-size:11.5px; font-weight:650; color:#526259; margin-bottom:6px;}
+  .auth-field input{
+    width:100%; min-height:43px; padding:10px 12px; border:1px solid #dfe7e0; border-radius:9px; font-family:var(--sans);
+    font-size:13px; background:#fbfdfb; color:var(--text); transition:border-color .18s ease,box-shadow .18s ease;
+  }
+  .auth-field input:focus{outline:none; border-color:#77a98a; box-shadow:0 0 0 3px rgba(47,111,78,.1);}
+  .auth-card-actions{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:19px;}
+  .auth-card-actions .btn{justify-content:center; min-width:155px;}
+  .auth-switch{color:var(--text-muted); font-size:11.5px;}
+  .auth-switch button{border:0; padding:0; color:var(--primary); background:none; font-size:inherit; font-weight:700;}
+  .auth-switch button:hover{text-decoration:underline;}
+  .auth-message{margin-top:13px; padding:10px 12px; border:1px solid #cce5d2; border-radius:8px; color:#286747; background:#f0f8f1; font-size:12px; line-height:1.5;}
+  .auth-message.error{border-color:#f0cac5; color:#a13d35; background:#fff5f3;}
+  .auth-demo-note{margin-top:15px; padding-top:12px; border-top:1px solid #edf0ed; color:#8a938c; font-size:10px; line-height:1.5;}
+  .auth-footer{margin-top:10px; color:#97a198; font-size:10px; text-align:center;}
+  .role-content{width:min(770px,100%); padding:36px 0;}
+  .role-content .auth-content{max-width:none; padding:0;}
+  .role-heading{text-align:center;}
+  .role-heading .auth-kicker{margin-bottom:8px;}
+  .role-heading h1{font-size:clamp(28px,4vw,38px);}
+  .role-heading .sub{max-width:46ch; margin:9px auto 0;}
+  .role-user{display:inline-flex; align-items:center; gap:7px; margin-top:14px; padding:6px 10px; border:1px solid #e5eee6; border-radius:999px; background:#f8fbf8; color:#66756a; font-size:11px;}
+  .role-cards{display:grid; grid-template-columns:repeat(3,1fr); gap:13px; margin-top:28px;}
+  .role-choice{min-height:180px; display:flex; flex-direction:column; align-items:flex-start; padding:17px; border:1px solid #e2e9e2; border-radius:13px; background:#fff; text-align:left; transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease;}
+  .role-choice:hover{transform:translateY(-3px); border-color:#b8d2bf; box-shadow:0 12px 25px rgba(37,84,51,.1);}
+  .role-icon{width:37px; height:37px; display:grid; place-items:center; border-radius:11px; color:#286747; background:#e9f4eb; font-size:17px;}
+  .role-choice:nth-child(2) .role-icon{color:#9a672b; background:#fbf1e4;}
+  .role-choice:nth-child(3) .role-icon{color:#3b6fa0; background:#eaf1f8;}
+  .role-choice strong{margin-top:14px; font-size:14px;}
+  .role-choice .role-description{margin-top:5px; color:var(--text-muted); font-size:11px; line-height:1.5;}
+  .role-choice .role-continue{display:flex; align-items:center; gap:5px; margin-top:auto; padding-top:14px; color:var(--primary); font-size:11px; font-weight:700;}
+  .role-switch{display:block; margin:20px auto 0; border:0; background:none; color:var(--text-muted); font-size:11px;}
+  .role-switch:hover{color:var(--primary);}
+  .role-signout{display:block; margin:7px auto 0; border:0; background:none; color:#929b94; font-size:10px;}
+  .role-signout:hover{color:var(--danger);}
+
+  /* ---------- DASHBOARD SHELL ---------- */
+  #view-dashboard{display:flex; min-height:100vh;}
+  .sidebar{
+    width:216px; flex-shrink:0; background:var(--surface); border-right:1px solid var(--border); padding:20px 14px;
+    display:flex; flex-direction:column; position:sticky; top:0; height:100vh;
+  }
+  .sidebar .brand{padding:0 8px 20px;}
+  .who{padding:10px 10px 16px; border-bottom:1px solid var(--border); margin-bottom:12px;}
+  .who .name{font-weight:600; font-size:14px;}
+  .who .role{font-size:12px; color:var(--text-muted); text-transform:capitalize; margin-top:2px;}
+  .nav-item{
+    display:flex; align-items:center; gap:9px; padding:9px 10px; border-radius:6px; font-size:13.5px;
+    color:var(--text-muted); background:none; border:none; width:100%; text-align:left; margin-bottom:1px; font-family:var(--sans);
+  }
+  .nav-item:hover{background:var(--bg); color:var(--text);}
+  .nav-item.active{background:var(--primary-soft); color:var(--primary); font-weight:600;}
+  .sidebar-bottom{margin-top:auto; display:flex; flex-direction:column; gap:6px;}
+  .sidebar-bottom .nav-item{font-size:12.5px;}
+
+  .main{flex:1; padding:32px 40px 72px; max-width:1080px;}
+  .page-head{display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:24px; flex-wrap:wrap; gap:12px;}
+  .page-head h1{font-size:22px;}
+  .page-head .sub{color:var(--text-muted); font-size:13.5px; margin-top:5px;}
+
+  .kpi-row{display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:12px; margin-bottom:26px;}
+  .kpi{background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:16px;}
+  .kpi .label{font-size:12.5px; color:var(--text-muted);}
+  .kpi .val{font-size:24px; margin-top:5px; font-weight:600;}
+  .kpi .val small{font-size:13px; color:var(--text-muted); font-weight:500;}
+
+  .panel{background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:22px; margin-bottom:18px;}
+  .panel h2{font-size:16px; margin-bottom:4px;}
+  .panel .panel-sub{color:var(--text-muted); font-size:13px; margin-bottom:16px;}
+  .formula-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-top:18px;}
+  .formula-item{border:1px solid var(--border); border-radius:6px; padding:13px; background:var(--bg);}
+  .formula-item .weight{font-size:12px; color:var(--primary); font-weight:700;}
+  .formula-item h3{font-size:13px; margin-top:4px;}
+  .formula-item p{font-size:12px; color:var(--text-muted); margin-top:4px; line-height:1.45;}
+  .formula-equation{margin-top:16px; padding:12px 14px; border-left:3px solid var(--primary); background:var(--primary-soft); font-size:13px; line-height:1.5;}
+  .formula-note{margin-top:10px; font-size:12px; color:var(--text-muted);}
+  .equity-warning{border:1px solid var(--warn); border-radius:var(--radius); padding:14px; margin-bottom:16px; background:var(--warn-soft);}
+  .equity-warning h3{font-size:14px; color:var(--warn);}
+  .equity-warning p{margin-top:5px; font-size:13px; color:var(--text-muted);}
+  @media (max-width:880px){.formula-grid{grid-template-columns:repeat(2,1fr);}}
+  @media (max-width:520px){.formula-grid{grid-template-columns:1fr;}}
+
+  /* opportunity cards (simplified, no ticket/stub styling) */
+  .ticket{
+    display:flex; border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; margin-bottom:12px; background:var(--surface);
+  }
+  .ticket-main{flex:1; padding:16px 18px;}
+  .ticket-main .row1{display:flex; align-items:center; gap:9px; margin-bottom:5px; flex-wrap:wrap;}
+  .ticket-main h3{font-size:15px;}
+  .pill{font-size:11px; font-weight:600; padding:3px 9px; border-radius:5px;}
+  .pill-project{background:var(--info-soft); color:var(--info);}
+  .pill-mentorship{background:var(--warn-soft); color:var(--warn);}
+
+  .ticket-main .desc{color:var(--text-muted); font-size:13px; margin-top:3px;}
+  .skill-chip{display:inline-block; font-size:12px; background:var(--bg); border:1px solid var(--border); padding:3px 8px; border-radius:5px; margin:7px 5px 0 0;}
+  .ticket-meta{display:flex; gap:14px; margin-top:10px; font-size:12px; color:var(--text-muted); flex-wrap:wrap;}
+  .ticket-side{
+    width:110px; flex-shrink:0; border-left:1px solid var(--border); display:flex; flex-direction:column; align-items:center;
+    justify-content:center; gap:7px; padding:12px 8px;
+  }
+  .ticket-side .pct{font-size:20px; font-weight:700;}
+  .ticket-side .pct.hi{color:var(--primary);}
+  .ticket-side .pct.mid{color:var(--warn);}
+  .ticket-side .pct.lo{color:var(--danger);}
+  .ticket-side .lbl{font-size:11px; color:var(--text-muted); text-align:center;}
+
+  .reason-box{margin-top:10px; font-size:13px; color:var(--text-muted); background:var(--bg); border:1px solid var(--border); border-radius:6px; padding:9px 11px;}
+  .reason-box b{color:var(--text);}
+
+  table{width:100%; border-collapse:collapse; font-size:13.5px;}
+  th{text-align:left; font-size:12px; color:var(--text-muted); font-weight:600; padding:8px 10px; border-bottom:1px solid var(--border);}
+  td{padding:10px; border-bottom:1px solid var(--border); vertical-align:middle;}
+  tr:last-child td{border-bottom:none;}
+
+  .badge-flag{display:inline-flex; align-items:center; gap:5px; font-size:12px; font-weight:600; color:var(--warn); background:var(--warn-soft); padding:3px 9px; border-radius:5px;}
+  .badge-ok{display:inline-flex; align-items:center; gap:5px; font-size:12px; font-weight:600; color:var(--primary); background:var(--primary-soft); padding:3px 9px; border-radius:5px;}
+
+  .form-grid{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
+  .form-grid .full{grid-column:1/-1;}
+  .form-field label{display:block; font-size:12.5px; font-weight:600; color:var(--text-muted); margin-bottom:6px;}
+  .form-field input, .form-field select, .form-field textarea{
+    width:100%; padding:9px 11px; border:1px solid var(--border); border-radius:6px; font-family:var(--sans); font-size:14px; background:var(--bg);
+  }
+  .form-field textarea{resize:vertical; min-height:60px;}
+  .form-field input:focus, .form-field select:focus, .form-field textarea:focus{outline:none; border-color:var(--primary);}
+  .hint{font-size:12px; color:var(--text-muted); margin-top:4px;}
+
+  .stamp-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(210px,1fr)); gap:12px;}
+  .stamp-card{border:1px solid var(--border); border-radius:var(--radius); padding:16px; background:var(--surface);}
+  .stamp-circle{
+    width:36px; height:36px; border-radius:50%; background:var(--primary-soft); display:flex; align-items:center; justify-content:center;
+    color:var(--primary); font-weight:700; font-size:12px; margin-bottom:10px;
+  }
+  .stamp-card h4{font-size:14px; margin-bottom:3px;}
+  .stamp-card .meta{font-size:12px; color:var(--text-muted);}
+
+  .tabs{display:flex; gap:4px; margin-bottom:20px; border-bottom:1px solid var(--border); flex-wrap:wrap;}
+  .tab{padding:9px 4px; margin-right:16px; font-size:13.5px; color:var(--text-muted); background:none; border:none; border-bottom:2px solid transparent; font-weight:500;}
+  .tab.active{color:var(--text); border-bottom-color:var(--primary); font-weight:600;}
+
+  .skill-tag-edit{display:inline-flex; align-items:center; gap:8px; background:var(--bg); border:1px solid var(--border); border-radius:20px; padding:5px 6px 5px 12px; margin:5px 6px 0 0; font-size:13px;}
+  .skill-tag-edit input[type=range]{width:60px;}
+  .skill-tag-edit .x{cursor:pointer; color:var(--text-muted); font-weight:700; padding:0 4px;}
+
+  .bar-track{background:var(--border); border-radius:5px; height:7px; overflow:hidden;}
+  .bar-fill{height:100%; border-radius:5px; background:var(--primary);}
+
+  .validation-panel{border-color:var(--info);}
+  .intelligence-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px;}
+  .intelligence-card{border:1px solid var(--border); border-radius:6px; padding:14px; background:var(--bg);}
+  .intelligence-card h3{font-size:14px; margin-bottom:8px;}
+  .intelligence-card .confidence{font-size:21px; font-weight:700; color:var(--primary);}
+  .intelligence-card .meta{font-size:12px; color:var(--text-muted); margin-top:4px;}
+  .classification-badge{display:inline-flex; font-size:11px; font-weight:700; padding:3px 8px; border-radius:5px; margin-top:9px;}
+  .classification-badge.demonstrated{color:var(--primary); background:var(--primary-soft);}
+  .classification-badge.verified{color:var(--info); background:var(--info-soft);}
+  .classification-badge.claimed{color:var(--warn); background:var(--warn-soft);}
+  .intelligence-legend{font-size:12px; color:var(--text-muted); margin-top:14px;}
+  .evidence-actions{display:flex; gap:8px; flex-wrap:wrap; margin-top:16px;}
+  .evidence-links{display:flex; flex-wrap:wrap; gap:6px; margin-top:8px;}
+  .evidence-link{border:1px solid var(--border); background:var(--surface); color:var(--text-muted); border-radius:5px; padding:4px 7px; font-size:11px; cursor:pointer;}
+  .evidence-link:hover{border-color:var(--primary); color:var(--primary);}
+  .evidence-detail{margin-top:10px; padding:10px 11px; border-left:3px solid var(--info); background:var(--info-soft); font-size:12.5px; color:var(--text-muted);}
+  .evidence-detail strong{color:var(--text);}
+  .validation-kicker{font-size:11px; letter-spacing:.04em; text-transform:uppercase; color:var(--info); font-weight:700; margin-bottom:5px;}
+  .validation-head{display:flex; justify-content:space-between; gap:16px; align-items:flex-start; flex-wrap:wrap;}
+  .validation-status{font-size:12px; font-weight:700; padding:5px 10px; border-radius:5px; white-space:nowrap;}
+  .validation-status.strong{color:var(--primary); background:var(--primary-soft);}
+  .validation-status.review{color:var(--warn); background:var(--warn-soft);}
+  .validation-status.not-recommended{color:var(--danger); background:#FBE9E7;}
+  .validation-grid{display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:18px;}
+  .validation-factors{display:grid; gap:10px;}
+  .validation-factor{display:grid; grid-template-columns:125px 1fr 38px; gap:9px; align-items:center; font-size:12.5px;}
+  .validation-factor .bar-track{height:8px;}
+  .validation-factor strong{text-align:right; font-size:12px;}
+  .validation-note{padding:11px 12px; border-radius:6px; background:var(--warn-soft); color:var(--warn); font-size:13px; margin-top:14px;}
+  .validation-note.ok{background:var(--primary-soft); color:var(--primary);}
+  .candidate-compare{margin-top:18px; overflow-x:auto;}
+  .candidate-compare table{min-width:620px;}
+  .decision-options{display:flex; flex-wrap:wrap; gap:10px; margin-top:12px;}
+  .decision-option{display:flex; align-items:center; gap:7px; font-size:13px; color:var(--text-muted);}
+  .decision-option input{accent-color:var(--primary);}
+  @media (max-width:700px){.validation-grid{grid-template-columns:1fr;}.validation-factor{grid-template-columns:110px 1fr 36px;}}
+
+  .alert-item{display:flex; gap:12px; padding:13px 0; border-bottom:1px solid var(--border);}
+  .alert-item:last-child{border-bottom:none;}
+  .alert-dot{width:7px; height:7px; border-radius:50%; background:var(--warn); margin-top:6px; flex-shrink:0;}
+  .alert-item .t{font-size:13.5px; font-weight:600;}
+  .alert-item .d{font-size:12.5px; color:var(--text-muted); margin-top:2px;}
+
+  .empty-state{padding:36px 20px; text-align:center; color:var(--text-muted);}
+  .empty-state h3{font-size:14.5px; color:var(--text); margin-bottom:5px;}
+  .empty-state p{font-size:13px;}
+
+  .toast{
+    position:fixed; bottom:22px; left:50%; transform:translateX(-50%) translateY(16px); background:var(--text); color:#fff;
+    padding:11px 18px; border-radius:6px; font-size:13.5px; opacity:0; transition:all .2s ease; pointer-events:none; z-index:200;
+  }
+  .toast.show{opacity:1; transform:translateX(-50%) translateY(0);}
+
+  @media (max-width:880px){
+    .auth-aside{padding:27px;}
+    .auth-main{padding:24px 28px 18px;}
+    .role-choice{padding:14px;}
+  }
+  @media (max-width:640px){
+    #view-auth,#view-role-picker{padding:14px;}
+    .auth-layout{min-height:0; max-width:480px; grid-template-columns:1fr; border-radius:17px;}
+    .auth-aside{display:none;}
+    .auth-main{min-height:calc(100vh - 28px); padding:17px 22px 15px;}
+    .auth-content{padding:20px 0;}
+    .auth-content h1{font-size:26px;}
+    .auth-card-actions{align-items:flex-start; flex-direction:column;}
+    .auth-card-actions .btn{width:100%;}
+    .role-content{padding:15px 0;}
+    .role-cards{grid-template-columns:1fr; margin-top:21px;}
+    .role-choice{min-height:0; display:grid; grid-template-columns:42px 1fr; column-gap:12px; padding:13px;}
+    .role-icon{grid-row:span 3;}
+    .role-choice strong{margin-top:1px;}
+    .role-choice .role-description{margin-top:2px;}
+    .role-choice .role-continue{padding-top:7px;}
+  }
+
+  @media (max-width:880px){
+    #view-dashboard{flex-direction:column;}
+    .sidebar{width:100%; height:auto; position:relative; flex-direction:row; overflow-x:auto; padding:12px;}
+    .sidebar .brand{display:none;}
+    .who{display:none;}
+    .sidebar-bottom{display:none;}
+    .nav-item{white-space:nowrap; width:auto;}
+    .main{padding:22px 16px 56px;}
+    .form-grid{grid-template-columns:1fr;}
+    .ticket{flex-direction:column;}
+    .ticket-side{width:100%; border-left:none; border-top:1px solid var(--border); flex-direction:row; padding:10px;}
+  }
+</style>
+</head>
+<body>
+<div class="app" id="app">
+
+  <!-- ===================== LANDING ===================== -->
+  <div id="view-landing">
+    <div class="topbar">
+      <div class="brand"><span class="brand-mark">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M4 12h16M13 5l7 7-7 7" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>Passage</div>
+      <nav aria-label="Main navigation">
+        <a href="#how-it-works">How it works</a>
+        <a href="#for-roles">Who it's for</a>
+      </nav>
+      <button class="btn btn-ghost btn-small" onclick="openAuth('login')">Sign in</button>
+    </div>
+
+    <div class="hero">
+      <div class="hero-copy">
+        <span class="hero-eyebrow"><span class="live-dot"></span>Make potential impossible to overlook</span>
+        <h1>Your career doesn't end at the <em>offer letter.</em></h1>
+        <p class="lede">The best opportunities should go to the people ready for them. Passage connects skills, projects and mentors — so great work finds its next step.</p>
+        <div class="cta-row">
+          <button class="btn btn-primary" onclick="openAuth('signup')">Create your account <span aria-hidden="true">→</span></button>
+          <button class="btn btn-ghost" onclick="document.getElementById('how-it-works').scrollIntoView({behavior:'smooth'})">See how it works</button>
+        </div>
+        <p class="microcopy">
+          <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="m5 10 3.2 3.2L15.5 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Create an account, sign in, and choose your workspace
+        </p>
+      </div>
+      <div class="hero-preview" aria-label="Preview of a personalized opportunity match">
+        <div class="preview-window">
+          <div class="preview-top">
+            <div class="preview-brand"><span class="brand-mark">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M4 12h16M13 5l7 7-7 7" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>Passage</div>
+            <span class="preview-status">Opportunity match</span>
+          </div>
+          <div class="preview-content">
+            <span class="preview-kicker">Recommended for you</span>
+            <div class="preview-title-row">
+              <div><h3>Product Launch</h3><p>Cross-functional project · 6 weeks</p></div>
+              <div class="preview-score">92%<small>great fit</small></div>
+            </div>
+            <div class="preview-divider"></div>
+            <span class="preview-label">Your strengths for this project</span>
+            <div class="preview-skills"><span>Product strategy</span><span>Research</span><span>+2 skills</span></div>
+            <div class="preview-match">
+              <span class="preview-check"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="m4 10 4 4 8-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <div><strong>A match you can understand</strong><p>See the skills and experience behind every recommendation.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="preview-float">
+          <span class="preview-float-icon" aria-hidden="true">↗</span>
+          <div><strong>Potential, recognized</strong><span>Skills matter more than titles</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="why-strip" id="how-it-works">
+      <div class="why-inner">
+        <div class="why-item"><span class="num">Profile</span><h3>Skills, not seniority</h3><p>Everyone lists what they can actually do — skills, performance, and where they want to grow.</p></div>
+        <div class="why-item"><span class="num">Match</span><h3>Score with a reason</h3><p>Every recommendation comes with why, so managers can trust it and challenge it.</p></div>
+        <div class="why-item"><span class="num">Flag</span><h3>Catch the overlooked</h3><p>Passage surfaces employees who match well but keep missing opportunities.</p></div>
+        <div class="why-item"><span class="num">Grow</span><h3>A record that travels</h3><p>Every project, mentor and course gets recorded into a lasting growth passport.</p></div>
+      </div>
+    </div>
+
+    <div class="role-section" id="for-roles">
+      <h2>Built for three very different mornings</h2>
+      <p class="sub">The same data, shaped around what each person actually needs to decide today.</p>
+      <div class="role-cards">
+        <div class="role-card">
+          <span class="tag tag-employee">Employee</span>
+          <h3>See what you're ready for</h3>
+          <p>Browse open projects, mentors and courses ranked by real fit.</p>
+          <ul><li>Match % with a written reason</li><li>Mentorship opportunities</li><li>Your growth passport</li></ul>
+          <button class="btn btn-primary btn-small go" onclick="openAuth('signup')">Get started</button>
+        </div>
+        <div class="role-card">
+          <span class="tag tag-manager">Manager</span>
+          <h3>Allocate work fairly</h3>
+          <p>Post a role, see ranked candidates, and validate fit before you assign.</p>
+          <ul><li>AI-ranked candidates</li><li>Fit validation checklist</li><li>Overlooked-talent alerts</li></ul>
+          <button class="btn btn-primary btn-small go" onclick="openAuth('signup')">Get started</button>
+        </div>
+        <div class="role-card">
+          <span class="tag tag-hr">HR / Admin</span>
+          <h3>Watch equity, org-wide</h3>
+          <p>Track how opportunity is actually distributed across departments.</p>
+          <ul><li>Opportunity equity index</li><li>Department comparisons</li><li>Talent risk reports</li></ul>
+          <button class="btn btn-primary btn-small go" onclick="openAuth('signup')">Get started</button>
+        </div>
+      </div>
+    </div>
+
+    <footer class="site">
+      <span>Passage — a post-hiring opportunity platform</span>
+      <span>Prototype build · sample data</span>
+    </footer>
+  </div>
+
+  <!-- ===================== AUTH ===================== -->
+  <div id="view-auth" class="hidden">
+    <div class="auth-layout">
+      <aside class="auth-aside">
+        <div class="auth-brand"><span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h16M13 5l7 7-7 7" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Passage</div>
+        <div class="auth-aside-copy">
+          <span class="eyebrow"><span class="live-dot"></span>Your next step starts here</span>
+          <h2>Make room for <span>what's next.</span></h2>
+          <p>Bring your skills, ambitions, and the right opportunities together — all in one place.</p>
+          <ul class="auth-points">
+            <li><span>✓</span>Discover opportunities matched to your strengths</li>
+            <li><span>✓</span>Make career growth visible and measurable</li>
+            <li><span>✓</span>Build fairer teams with clear insights</li>
+          </ul>
+        </div>
+        <div class="auth-aside-foot">A brighter path to your next opportunity.</div>
+        <span class="auth-orbit" aria-hidden="true"></span>
+      </aside>
+      <main class="auth-main">
+        <button class="back-link" onclick="go('landing')">&larr; Back to home</button>
+        <div class="auth-content">
+          <span class="auth-kicker" id="auth-kicker">Welcome to Passage</span>
+          <h1 id="auth-title">Create your account</h1>
+          <p class="sub" id="auth-sub">A few details are all it takes to get started.</p>
+
+          <form id="signup-form" class="auth-form" onsubmit="registerAccount(event)">
+            <div class="auth-field">
+              <label for="signup-name">Full name</label>
+              <input id="signup-name" name="name" type="text" placeholder="e.g. Aisha Patel" autocomplete="name" minlength="2" maxlength="100" required>
+            </div>
+            <div class="auth-field">
+              <label for="signup-email">Email address</label>
+              <input id="signup-email" name="email" type="email" placeholder="you@company.com" autocomplete="email" required>
+            </div>
+            <div class="auth-field">
+              <label for="signup-password">Create password</label>
+              <input id="signup-password" name="password" type="password" placeholder="At least 8 characters" autocomplete="new-password" minlength="8" required>
+            </div>
+            <div class="auth-field">
+              <label for="signup-confirm">Confirm password</label>
+              <input id="signup-confirm" name="confirmPassword" type="password" placeholder="Enter your password again" autocomplete="new-password" required>
+            </div>
+            <div id="signup-message" class="hidden" role="status"></div>
+            <div class="auth-card-actions">
+              <button class="btn btn-primary" type="submit">Create account <span aria-hidden="true">→</span></button>
+              <span class="auth-switch">Already registered? <button type="button" onclick="switchAuthMode('login')">Sign in</button></span>
+            </div>
+          </form>
+
+          <form id="login-form" class="auth-form hidden" onsubmit="completeAuth(event)">
+            <div class="auth-field">
+              <label for="login-email">Email address</label>
+              <input id="login-email" name="email" type="email" placeholder="you@company.com" autocomplete="email" required>
+            </div>
+            <div class="auth-field">
+              <label for="login-password">Password</label>
+              <input id="login-password" name="password" type="password" placeholder="Your password" autocomplete="current-password" required>
+            </div>
+            <div id="login-message" class="hidden" role="alert"></div>
+            <div class="auth-card-actions">
+              <button class="btn btn-primary" type="submit">Sign in <span aria-hidden="true">→</span></button>
+              <span class="auth-switch">New here? <button type="button" onclick="switchAuthMode('signup')">Create account</button></span>
+            </div>
+          </form>
+          <p class="auth-demo-note">Prototype accounts are saved in this browser. Use a unique email address to create your account.</p>
+        </div>
+        <p class="auth-footer">Built for people. Designed for opportunity.</p>
+      </main>
+    </div>
+  </div>
+
+  <!-- ===================== ROLE PICKER ===================== -->
+  <div id="view-role-picker" class="hidden">
+    <div class="auth-layout">
+      <aside class="auth-aside">
+        <div class="auth-brand"><span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h16M13 5l7 7-7 7" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Passage</div>
+        <div class="auth-aside-copy">
+          <span class="eyebrow"><span class="live-dot"></span>One account, your perspective</span>
+          <h2>Choose how you want to <span>make an impact.</span></h2>
+          <p>Step into the workspace that fits what you need to do today. You can switch roles whenever you like.</p>
+        </div>
+        <div class="auth-aside-foot">Your opportunities. Your next move.</div>
+        <span class="auth-orbit" aria-hidden="true"></span>
+      </aside>
+      <main class="auth-main">
+        <div class="role-content">
+          <div class="role-heading">
+            <span class="auth-kicker">Welcome, <span id="role-user-name"></span></span>
+            <h1>How would you like to continue?</h1>
+            <p class="sub">Choose a workspace to open. You can switch roles later.</p>
+            <span class="role-user"><span aria-hidden="true">✦</span><span id="role-user-email"></span></span>
+          </div>
+          <div class="role-cards">
+            <button type="button" class="role-choice" onclick="continueAs('employee')">
+              <span class="role-icon" aria-hidden="true">↗</span>
+              <strong>Employee</strong>
+              <span class="role-description">Explore roles, projects, and your career growth.</span>
+              <span class="role-continue">Open workspace <span aria-hidden="true">→</span></span>
+            </button>
+            <button type="button" class="role-choice" onclick="continueAs('manager')">
+              <span class="role-icon" aria-hidden="true">◇</span>
+              <strong>Manager</strong>
+              <span class="role-description">Find talent and allocate opportunities fairly.</span>
+              <span class="role-continue">Open workspace <span aria-hidden="true">→</span></span>
+            </button>
+            <button type="button" class="role-choice" onclick="continueAs('hr')">
+              <span class="role-icon" aria-hidden="true">◎</span>
+              <strong>Admin / HR</strong>
+              <span class="role-description">Monitor organization-wide talent and equity.</span>
+              <span class="role-continue">Open workspace <span aria-hidden="true">→</span></span>
+            </button>
+          </div>
+          <button type="button" class="role-switch" onclick="switchRole()">← Choose a different role</button>
+          <button type="button" class="role-signout" onclick="signOut()">Sign out</button>
+        </div>
+        <p class="auth-footer">Built for people. Designed for opportunity.</p>
+      </main>
+    </div>
+  </div>
+
+  <!-- ===================== DASHBOARD ===================== -->
+  <div id="view-dashboard" class="hidden">
+    <div class="sidebar">
+      <div class="brand"><span class="brand-mark">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M4 12h16M13 5l7 7-7 7" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>Passage</div>
+      <div class="who"><div class="name" id="who-name">—</div><div class="role" id="who-role">—</div></div>
+      <div id="nav-items"></div>
+      <div class="sidebar-bottom">
+        <button class="nav-item" onclick="resetData()">↺ Reset sample data</button>
+        <button class="nav-item" onclick="switchRole()">← Switch role</button>
+      </div>
+    </div>
+    <div class="main" id="main-content"></div>
+  </div>
+
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ======================================================================
+   STATE
+====================================================================== */
+let state = null;
+let session = { role: null, employeeId: null, name: null, email: null };
+let signedInAccount = null;
+let ui = { empTab: 'profile', mgrTab: 'team', hrTab: 'analytics', mgrOppId: null, validation: null, evidence: null };
+const ACCOUNT_STORAGE_KEY = 'passage-prototype-accounts';
+
+const DOMAIN_SKILLS = {
+  "Frontend Engineering": ["HTML","CSS","JavaScript","React","TypeScript","Vue.js","Next.js","Accessibility","Jest","Responsive Design"],
+  "Backend Engineering": ["Java","Spring Boot","Python","Node.js","SQL","REST API","GraphQL","Microservices","System Design","Redis"],
+  "Full Stack Development": ["HTML","CSS","JavaScript","React","TypeScript","Node.js","SQL","REST API","GraphQL","Docker"],
+  "Mobile Development": ["Kotlin","Swift","Flutter","React Native","Android SDK","iOS SDK","Mobile UI","Firebase","REST API","App Testing"],
+  "Data Engineering": ["Python","SQL","Apache Spark","Airflow","ETL","Data Warehousing","Kafka","dbt","AWS","Data Modeling"],
+  "Machine Learning & AI": ["Python","Scikit-learn","TensorFlow","PyTorch","NLP","Computer Vision","Pandas","NumPy","MLOps","Model Evaluation"],
+  "DevOps & Cloud": ["Linux","Docker","Kubernetes","AWS","Azure","Terraform","CI/CD","GitHub Actions","Monitoring","Networking"],
+  "QA & Test Automation": ["Test Planning","Manual Testing","Selenium","Cypress","Playwright","API Testing","Jest","Performance Testing","CI/CD","Bug Tracking"],
+  "Cybersecurity": ["Network Security","Application Security","OWASP","Penetration Testing","Threat Modeling","SIEM","Identity & Access Management","Cryptography","Linux","Incident Response"],
+  "Product Engineering": ["Product Analytics","User Research","UX Research","Wireframing","Figma","Usability Testing","Product Strategy","A/B Testing","Roadmapping","Public Speaking"],
+  "Blockchain & Web3": ["Solidity","Ethereum","Smart Contracts","Web3.js","Cryptography","DeFi","NFT Standards","Hardhat","Tokenomics","Blockchain Security"],
+  "Embedded & IoT": ["C","C++","Embedded Linux","Microcontrollers","RTOS","MQTT","IoT Security","PCB Design","Sensors","Firmware Testing"],
+  "Game Development": ["C#","Unity","Unreal Engine","C++","Game Physics","3D Modeling","Shaders","Game AI","Multiplayer Networking","Level Design"],
+  "Solutions Architecture": ["Cloud Architecture","AWS","Azure","System Design","Distributed Systems","API Design","Security Architecture","Scalability","Technical Documentation","Stakeholder Management"]
+};
+const CAREER_DOMAINS = Object.keys(DOMAIN_SKILLS);
+
+function normalizeCareerDomain(domain){
+  return domain === 'AI Engineering' ? 'Machine Learning & AI' : domain;
+}
+
+function skillsForDomain(domain){
+  return DOMAIN_SKILLS[normalizeCareerDomain(domain)] || [];
+}
+
+function todayISO(offsetDays){ const d = new Date(); d.setDate(d.getDate()+(offsetDays||0)); return d.toISOString().slice(0,10); }
+function daysAgo(iso){ return Math.round((new Date() - new Date(iso)) / 86400000); }
+function uid(prefix){ return prefix + '_' + Math.random().toString(36).slice(2,9); }
+
+function seedData(){
+  const employees = [
+    { id:'e1', name:'Lovekush Goyal', email:'lovekush@company.com', department:'Engineering', designation:'Software Engineer II', experienceYears:4, joiningDate:'2022-03-01', careerGoal:'Backend Engineering', performanceScore:88,
+      skills:[{name:'Java',level:5},{name:'Spring Boot',level:5},{name:'SQL',level:4},{name:'REST API',level:5}],
+      opportunityHistory:[
+        {type:'Project', title:'E-Commerce API', date:todayISO(-540), outcome:'completed'},
+        {type:'Project', title:'Banking System', date:todayISO(-420), outcome:'completed'},
+        {type:'Project', title:'HR Automation', date:todayISO(-300), outcome:'completed'},
+        {type:'Project', title:'Inventory Sync Service', date:todayISO(-210), outcome:'completed'},
+        {type:'Project', title:'Order Fulfillment API', date:todayISO(-140), outcome:'completed'},
+        {type:'Mentorship', title:'Mentoring 2 juniors', date:todayISO(-90), outcome:'completed'},
+        {type:'Project', title:'Notification Service', date:todayISO(-40), outcome:'completed'},
+      ],
+      passport:[
+        {skill:'Java', source:'E-Commerce API', date:todayISO(-540)},
+        {skill:'REST APIs', source:'Banking System', date:todayISO(-420)},
+        {skill:'SQL', source:'HR Automation', date:todayISO(-300)},
+      ] },
+    { id:'e2', name:'Abhinandan Pandey', email:'abhinandan@company.com', department:'Engineering', designation:'Software Engineer II', experienceYears:4, joiningDate:'2022-02-10', careerGoal:'Backend Engineering', performanceScore:86,
+      skills:[{name:'Java',level:5},{name:'Spring Boot',level:4},{name:'SQL',level:4},{name:'REST API',level:4}],
+      opportunityHistory:[
+        {type:'Project', title:'Payroll Microservice', date:todayISO(-460), outcome:'completed'},
+        {type:'Project', title:'Reporting Dashboard API', date:todayISO(-150), outcome:'completed'},
+        {type:'Project', title:'Data Export Service', date:todayISO(-12), outcome:'pending'},
+      ],
+      passport:[
+        {skill:'Java', source:'Payroll Microservice', date:todayISO(-460)},
+      ] },
+    { id:'e3', name:'Kajal Kumari', email:'kajal@company.com', department:'Engineering', designation:'Frontend Engineer', experienceYears:3, joiningDate:'2023-01-15', careerGoal:'Frontend Engineering', performanceScore:90,
+      skills:[{name:'React',level:5},{name:'TypeScript',level:4},{name:'REST API',level:3}],
+      opportunityHistory:[
+        {type:'Project', title:'Employee Self-Service Portal', date:todayISO(-300), outcome:'completed'},
+        {type:'Project', title:'Analytics Dashboard UI', date:todayISO(-160), outcome:'completed'},
+      ],
+      passport:[
+        {skill:'React', source:'Employee Self-Service Portal', date:todayISO(-300)},
+      ] },
+    { id:'e4', name:'Ruchi Kumari', email:'ruchi@company.com', department:'Data & AI', designation:'ML Engineer', experienceYears:2, joiningDate:'2023-08-01', careerGoal:'Machine Learning & AI', performanceScore:91,
+      skills:[{name:'Python',level:4},{name:'Scikit-learn',level:4},{name:'NLP',level:3}],
+      opportunityHistory:[
+        {type:'Project', title:'Resume Parsing Prototype', date:todayISO(-120), outcome:'completed'},
+      ],
+      passport:[
+        {skill:'Python', source:'Resume Parsing Prototype', date:todayISO(-120)},
+      ] },
+    { id:'e5', name:'Saumya Gupta', email:'saumya@company.com', department:'Engineering', designation:'Software Engineer I', experienceYears:2, joiningDate:'2024-01-10', careerGoal:'Backend Engineering', performanceScore:84,
+      skills:[{name:'Java',level:4},{name:'SQL',level:4},{name:'REST API',level:3},{name:'Spring Boot',level:3}],
+      opportunityHistory:[
+        {type:'Project', title:'Internal Ticketing Tool', date:todayISO(-380), outcome:'completed'},
+        {type:'Mentorship', title:'Senior Backend Mentorship Circle', date:todayISO(-8), outcome:'pending'},
+      ],
+      passport:[
+        {skill:'Java', source:'Internal Ticketing Tool', date:todayISO(-380)},
+      ] },
+    { id:'e6', name:'Devansh Rao', email:'devansh@company.com', department:'Engineering', designation:'Software Engineer I', experienceYears:2, joiningDate:'2023-11-20', careerGoal:'Product Engineering', performanceScore:87,
+      skills:[{name:'React',level:3},{name:'Node.js',level:3},{name:'REST API',level:3}],
+      opportunityHistory:[
+        {type:'Project', title:'Customer Support Dashboard', date:todayISO(-5), outcome:'pending'},
+      ], passport:[] },
+  ];
+
+  const opportunities = [
+    { id:'o1', title:'Java Backend Development', type:'Project', domain:'Backend Engineering', description:'Own two services in the payments platform, working closely with SRE on reliability. Build scalable microservices with event-driven patterns.', requiredSkills:[{name:'Java',level:4},{name:'Spring Boot',level:4},{name:'SQL',level:3},{name:'REST API',level:4},{name:'Docker',level:2},{name:'Microservices',level:3}], minExperience:2, duration:'12 weeks', openPositions:1, status:'open', createdBy:'Manager', domainDept:'Engineering', patterns:['Event-Driven Architecture','CQRS','Distributed Tracing'] },
+    { id:'o2', title:'Frontend Platform Revamp', type:'Project', domain:'Frontend Engineering', description:'Rebuild the internal admin console with a new design system. Implement responsive components and accessibility features.', requiredSkills:[{name:'React',level:4},{name:'TypeScript',level:3},{name:'CSS',level:3},{name:'Jest',level:2}], minExperience:1, duration:'8 weeks', openPositions:1, status:'open', createdBy:'Manager', domainDept:'Engineering', patterns:['Component-Driven Development','Atomic Design','State Management'] },
+    { id:'o3', title:'Applicant Matching Model v2', type:'Project', domain:'Machine Learning & AI', description:'Improve the embedding model used for skill-to-opportunity matching. Implement advanced NLP techniques and optimize performance.', requiredSkills:[{name:'Python',level:3},{name:'Scikit-learn',level:3},{name:'NLP',level:3},{name:'TensorFlow',level:2}], minExperience:1, duration:'10 weeks', openPositions:1, status:'open', createdBy:'Manager', domainDept:'Data & AI', patterns:['Transfer Learning','Feature Engineering','Model Evaluation'] },
+    { id:'o4', title:'Real-time Analytics Engine', type:'Project', domain:'Backend Engineering', description:'Design and implement a real-time analytics platform for processing streaming data with high throughput and low latency.', requiredSkills:[{name:'Kafka',level:3},{name:'Python',level:4},{name:'Spark',level:3},{name:'SQL',level:4}], minExperience:2, duration:'14 weeks', openPositions:1, status:'open', createdBy:'Manager', domainDept:'Data & AI', patterns:['Stream Processing','Lambda Architecture','Data Pipeline'] },
+    { id:'o5', title:'DevOps Infrastructure Modernization', type:'Project', domain:'DevOps & Cloud', description:'Migrate legacy infrastructure to cloud-native architecture using Kubernetes and Infrastructure-as-Code principles.', requiredSkills:[{name:'Kubernetes',level:3},{name:'Docker',level:4},{name:'Terraform',level:3},{name:'AWS',level:3},{name:'CI/CD',level:3}], minExperience:2, duration:'12 weeks', openPositions:1, status:'open', createdBy:'Manager', domainDept:'Engineering', patterns:['GitOps','Immutable Infrastructure','Infrastructure-as-Code'] },
+  ];
+
+  return { employees, opportunities, applications:[], nextManagerName:null, nextHrName:null };
+}
+
+/* ======================================================================
+   PERSISTENCE
+====================================================================== */
+async function loadState(){
+  try{
+    const res = await window.storage.get('pho-state', false);
+    if(res && res.value){ state = JSON.parse(res.value); return; }
+  }catch(e){ /* no existing key */ }
+  state = seedData();
+  await saveState();
+}
+async function saveState(){
+  try{ await window.storage.set('pho-state', JSON.stringify(state), false); }
+  catch(e){ console.error('save failed', e); }
+}
+async function resetData(){
+  if(!confirm('Reset all sample data? This clears every application, assignment and passport entry you have added.')) return;
+  state = seedData();
+  await saveState();
+  renderCurrentView();
+  showToast('Sample data reset');
+}
+
+/* ======================================================================
+   MATCHING / EQUITY / GAP LOGIC
+====================================================================== */
+function empSkillLevel(emp, skillName){
+  const s = emp.skills.find(x=>x.name===skillName);
+  return s ? s.level : 0;
+}
+function skillMatchPct(emp, opp){
+  if(!opp.requiredSkills.length) return 100;
+  let total=0;
+  opp.requiredSkills.forEach(rs=>{
+    const lvl = empSkillLevel(emp, rs.name);
+    total += Math.min(lvl / rs.level, 1) * 100;
+  });
+  return total / opp.requiredSkills.length;
+}
+function experiencePct(emp, opp){
+  if(!opp.minExperience) return 100;
+  return Math.min(emp.experienceYears / opp.minExperience, 1) * 100;
+}
+function goalPct(emp, opp){
+  if(!emp.careerGoal) return 55;
+  const careerDomain = normalizeCareerDomain(emp.careerGoal);
+  return careerDomain === opp.domain ? 100 : (careerDomain.split(' ')[0]===opp.domain.split(' ')[0] ? 70 : 40);
+}
+function activeCount(emp){
+  return emp.opportunityHistory.filter(h=>h.outcome==='in-progress').length;
+}
+function workloadPct(emp){
+  return Math.max(0, 100 - activeCount(emp)*35);
+}
+function performancePct(emp){
+  if(emp.performanceScore != null) return Math.max(0, Math.min(emp.performanceScore, 100));
+  return Math.min(70 + countType(emp,'Project')*4, 92);
+}
+function computeMatch(emp, opp){
+  const skill = skillMatchPct(emp,opp), exp = experiencePct(emp,opp), goal = goalPct(emp,opp),
+    work = workloadPct(emp), performance = performancePct(emp);
+  const score = skill*0.5 + exp*0.15 + goal*0.15 + performance*0.1 + work*0.1;
+  return { score: Math.round(score), skill:Math.round(skill), exp:Math.round(exp), goal:Math.round(goal), performance:Math.round(performance), work:Math.round(work) };
+}
+function matchReason(emp, opp, m){
+  const bits = [];
+  const strong = opp.requiredSkills.filter(rs => empSkillLevel(emp, rs.name) >= rs.level).map(rs=>rs.name);
+  const weak = opp.requiredSkills.filter(rs => empSkillLevel(emp, rs.name) < rs.level).map(rs=>rs.name);
+  if(strong.length) bits.push(`Meets or exceeds the bar on ${strong.join(', ')}`);
+  if(weak.length) bits.push(`Below target level on ${weak.join(', ')}`);
+  if(m.exp>=100) bits.push(`has enough experience for this role`);
+  else if(opp.minExperience) bits.push(`has less experience than the role typically asks for`);
+  if(m.goal>=100) bits.push(`this lines up directly with their stated career goal`);
+  if(activeCount(emp)>=2) bits.push(`currently stretched across ${activeCount(emp)} active opportunities`);
+  return bits.join('; ') + '.';
+}
+function countType(emp, type){ return emp.opportunityHistory.filter(h=>h.type===type).length; }
+function recencyPct(emp){
+  if(!emp.opportunityHistory.length) return 0;
+  const last = emp.opportunityHistory.reduce((a,h)=> new Date(h.date) > new Date(a.date) ? h : a);
+  const d = daysAgo(last.date);
+  if(d<=30) return 100; if(d<=90) return 75; if(d<=180) return 50; if(d<=365) return 25; return 10;
+}
+function equityScore(emp, all){
+  const maxP = Math.max(1, ...all.map(e=>countType(e,'Project')));
+  const maxM = Math.max(1, ...all.map(e=>countType(e,'Mentorship')));
+  const projectExposure = countType(emp,'Project')/maxP*100;
+  const mentorshipExposure = countType(emp,'Mentorship')/maxM*100;
+  const skillGrowth = Math.min(emp.passport.length*18, 100);
+  const recency = recencyPct(emp);
+  const score = projectExposure*0.35 + mentorshipExposure*0.25 + skillGrowth*0.20 + recency*0.20;
+  return Math.round(score);
+}
+function orgAvgEquity(){
+  const scores = state.employees.map(e=>equityScore(e, state.employees));
+  return Math.round(scores.reduce((a,b)=>a+b,0) / scores.length);
+}
+function isOverlooked(emp){
+  const openOpps = state.employees===state.employees ? state.opportunities.filter(o=>o.status==='open') : [];
+  const bestMatch = Math.max(0, ...openOpps.map(o=>computeMatch(emp,o).score));
+  const eq = equityScore(emp, state.employees);
+  const avgEq = orgAvgEquity();
+  const capable = bestMatch >= 82;
+  const underExposed = eq < avgEq - 8 || countType(emp,'Project') <= 2;
+  return capable && underExposed;
+}
+
+/* ======================================================================
+   NAV / VIEW SWITCHING
+====================================================================== */
+function go(view){
+  document.getElementById('view-landing').classList.toggle('hidden', view!=='landing');
+  document.getElementById('view-auth').classList.toggle('hidden', view!=='auth');
+  document.getElementById('view-role-picker').classList.toggle('hidden', view!=='roles');
+  document.getElementById('view-dashboard').classList.toggle('hidden', view!=='dashboard');
+  window.scrollTo(0,0);
+}
+function openAuth(mode='signup'){
+  switchAuthMode(mode);
+  go('auth');
+}
+function setAuthMessage(id,message,isError=false){
+  const element=document.getElementById(id);
+  element.textContent=message;
+  element.classList.toggle('hidden',!message);
+  element.classList.toggle('error',isError);
+  element.classList.toggle('auth-message',Boolean(message));
+}
+function switchAuthMode(mode,successMessage=''){
+  const isSignup=mode==='signup';
+  document.getElementById('signup-form').classList.toggle('hidden',!isSignup);
+  document.getElementById('login-form').classList.toggle('hidden',isSignup);
+  document.getElementById('auth-kicker').textContent=isSignup?'Welcome to Passage':'Welcome back';
+  document.getElementById('auth-title').textContent=isSignup?'Create your account':'Sign in to Passage';
+  document.getElementById('auth-sub').textContent=isSignup?'A few details are all it takes to get started.':'Sign in to choose your employee, manager, or admin workspace.';
+  document.getElementById('login-password').value='';
+  setAuthMessage('signup-message','');
+  setAuthMessage('login-message',successMessage);
+}
+function getAccounts(){
+  const stored=localStorage.getItem(ACCOUNT_STORAGE_KEY);
+  if(!stored) return [];
+  const accounts=JSON.parse(stored);
+  if(!Array.isArray(accounts)) throw new Error('Saved accounts could not be read. Clear this prototype data and try again.');
+  return accounts;
+}
+function bytesToHex(bytes){
+  return Array.from(bytes,byte=>byte.toString(16).padStart(2,'0')).join('');
+}
+async function hashPassword(password,salt){
+  if(!window.crypto || !window.crypto.subtle) throw new Error('Secure password hashing is unavailable in this browser.');
+  const key=await crypto.subtle.importKey('raw',new TextEncoder().encode(password),'PBKDF2',false,['deriveBits']);
+  const bits=await crypto.subtle.deriveBits({name:'PBKDF2',salt:new TextEncoder().encode(salt),iterations:120000,hash:'SHA-256'},key,256);
+  return bytesToHex(new Uint8Array(bits));
+}
+async function registerAccount(event){
+  event.preventDefault();
+  setAuthMessage('signup-message','');
+  const name=document.getElementById('signup-name').value.trim();
+  const email=document.getElementById('signup-email').value.trim().toLowerCase();
+  const password=document.getElementById('signup-password').value;
+  const confirmation=document.getElementById('signup-confirm').value;
+  if(name.length<2){setAuthMessage('signup-message','Please enter your full name (at least 2 characters).',true);return;}
+  if(!/^[\p{L}\p{M} .,'’()-]+$/u.test(name)){setAuthMessage('signup-message','Please use letters and standard name punctuation only.',true);return;}
+  if(password.length<8 || !/[A-Z]/.test(password) || !/[a-z]/.test(password) || !/\d/.test(password)){
+    setAuthMessage('signup-message','Use at least 8 characters with an uppercase letter, a lowercase letter, and a number.',true);return;
+  }
+  if(password!==confirmation){setAuthMessage('signup-message','Your passwords do not match.',true);return;}
+  try{
+    const accounts=getAccounts();
+    if(accounts.some(account=>account.email===email)){
+      setAuthMessage('signup-message','An account with this email already exists. Please sign in instead.',true);return;
+    }
+    const salt=bytesToHex(crypto.getRandomValues(new Uint8Array(16)));
+    const passwordHash=await hashPassword(password,salt);
+    accounts.push({name,email,salt,passwordHash,createdAt:new Date().toISOString()});
+    localStorage.setItem(ACCOUNT_STORAGE_KEY,JSON.stringify(accounts));
+    document.getElementById('login-email').value=email;
+    document.getElementById('signup-password').value='';
+    document.getElementById('signup-confirm').value='';
+    switchAuthMode('login','Account created successfully. Sign in with your email and password to continue.');
+  }catch(error){
+    setAuthMessage('signup-message',error instanceof Error?error.message:'Unable to create your account in this browser.',true);
+  }
+}
+async function completeAuth(event){
+  event.preventDefault();
+  setAuthMessage('login-message','');
+  const email=document.getElementById('login-email').value.trim().toLowerCase();
+  const password=document.getElementById('login-password').value;
+  try{
+    const account=getAccounts().find(saved=>saved.email===email);
+    if(!account){setAuthMessage('login-message','We couldn’t find an account with that email. Create an account first.',true);return;}
+    const passwordHash=await hashPassword(password,account.salt);
+    if(passwordHash!==account.passwordHash){setAuthMessage('login-message','That password doesn’t match this account. Please try again.',true);return;}
+    signedInAccount=account;
+    session={role:null,employeeId:null,name:account.name,email:account.email};
+    document.getElementById('role-user-name').textContent=account.name;
+    document.getElementById('role-user-email').textContent=account.email;
+    document.getElementById('login-password').value='';
+    go('roles');
+  }catch(error){
+    setAuthMessage('login-message',error instanceof Error?error.message:'Unable to sign in. Please try again.',true);
+  }
+}
+function continueAs(role){
+  if(!signedInAccount){openAuth('login');return;}
+  session.role=role;
+  if(role==='employee'){
+    let employee=state.employees.find(item=>item.email.toLowerCase()===session.email);
+    if(!employee){
+      const template=state.employees[0];
+      employee=JSON.parse(JSON.stringify(template));
+      employee.id=uid('account');
+      employee.name=session.name;
+      employee.email=session.email;
+      state.employees.push(employee);
+    }else{
+      employee.name=session.name;
+      employee.email=session.email;
+    }
+    session.employeeId=employee.id;
+  }else{
+    session.employeeId=null;
+  }
+  ui = { empTab:'profile', mgrTab:'team', hrTab:'analytics', mgrOppId:null, validation:null, evidence:null };
+  go('dashboard');
+  renderCurrentView();
+}
+function switchRole(){
+  if(!signedInAccount){signOut();return;}
+  go('roles');
+}
+function signOut(){
+  signedInAccount=null;
+  session = { role:null, employeeId:null, name:null, email:null };
+  go('landing');
+}
+
+/* ======================================================================
+   RENDER: SIDEBAR
+====================================================================== */
+const NAVS = {
+  employee: [['profile','My Profile'],['opportunities','Opportunities'],['intelligence','Skill Intelligence'],['passport','Growth Passport']],
+  manager: [['team','My Team'],['create','Create Opportunity'],['matching','AI Matching & Fit'],['fairness','Fairness Review'],['skill-intelligence','Skill Intelligence'],['alerts','Alerts']],
+  hr: [['analytics','Organization Analytics'],['equity','Equity Monitoring'],['talent','Talent Insights'],['skill-intelligence','Skill Intelligence'],['reports','Reports']],
+};
+function renderSidebar(){
+  document.getElementById('who-name').textContent = session.name;
+  document.getElementById('who-role').textContent = session.role + (session.role==='employee' ? ' · ' + state.employees.find(e=>e.id===session.employeeId).designation : '');
+  const tabState = session.role==='employee' ? ui.empTab : session.role==='manager' ? ui.mgrTab : ui.hrTab;
+  const html = NAVS[session.role].map(([key,label])=>
+    `<button class="nav-item ${tabState===key?'active':''}" onclick="setTab('${key}')">${label}</button>`
+  ).join('');
+  document.getElementById('nav-items').innerHTML = html;
+}
+function setTab(key){
+  if(session.role==='employee') ui.empTab = key;
+  if(session.role==='manager') ui.mgrTab = key;
+  if(session.role==='hr') ui.hrTab = key;
+  ui.mgrOppId = null;
+  ui.validation = null;
+  ui.evidence = null;
+  renderCurrentView();
+}
+function renderCurrentView(){
+  renderSidebar();
+  const main = document.getElementById('main-content');
+  if(session.role==='employee') main.innerHTML = renderEmployee();
+  if(session.role==='manager') main.innerHTML = renderManager();
+  if(session.role==='hr') main.innerHTML = renderHR();
+}
+
+/* ======================================================================
+   EMPLOYEE VIEWS
+====================================================================== */
+function currentEmp(){ return state.employees.find(e=>e.id===session.employeeId); }
+
+function skillProfileScore(emp){
+  if(!emp.skills.length) return 0;
+  const total = emp.skills.reduce((sum, skill)=>sum + Math.max(0, Math.min(skill.level, 5)), 0);
+  return Math.round(total / (emp.skills.length * 5) * 100);
+}
+
+function skillKey(value){
+  return String(value || '').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim().replace(/s$/,'');
+}
+function recordMentionsSkill(record, skillName){
+  const key = skillKey(skillName);
+  return [record.title, record.details, record.skill].filter(Boolean).some(value=>skillKey(value).includes(key) || key.includes(skillKey(value)));
+}
+function skillEvidence(emp, skill){
+  const records = emp.opportunityHistory || [];
+  const explicit = skill.evidence || {};
+  const submissions = (emp.skillEvidence || []).filter(record=>record.skillKey===skillKey(skill.name));
+  const project = Boolean(explicit.project) || submissions.some(record=>record.type==='project') || records.some(record=>record.type==='Project' && recordMentionsSkill(record,skill.name)) || (emp.passport || []).some(stamp=>recordMentionsSkill(stamp,skill.name));
+  const certificate = Boolean(explicit.certificate) || submissions.some(record=>record.type==='certificate') || records.some(record=>/certificate|certification/i.test(record.type) && recordMentionsSkill(record,skill.name));
+  const assessment = Boolean(explicit.assessment) || submissions.some(record=>record.type==='assessment') || records.some(record=>/assessment|test|exam/i.test(record.type) && recordMentionsSkill(record,skill.name));
+  const feedback = Boolean(explicit.managerFeedback) || submissions.some(record=>record.type==='feedback') || records.some(record=>/manager feedback|feedback|review/i.test(record.type) && recordMentionsSkill(record,skill.name));
+  return {resume:true, certificate, project, assessment, feedback};
+}
+function classifySkill(emp, skill){
+  const evidence = skillEvidence(emp,skill);
+  const relevant = skillsForDomain(emp.careerGoal).some(domainSkill=>skillKey(domainSkill)===skillKey(skill.name));
+  const weights = {resume:.08, certificate:.2, project:.42, assessment:.22, feedback:.08};
+  const activeWeight = Object.keys(weights).reduce((sum,key)=>sum+(evidence[key]?weights[key]:0),0);
+  const confidence = Math.round(activeWeight / Object.values(weights).reduce((sum,value)=>sum+value,0) * 100);
+  const demonstrated = evidence.project || evidence.assessment || evidence.feedback;
+  const verified = evidence.certificate || evidence.assessment;
+  const type = demonstrated ? 'demonstrated' : verified ? 'verified' : 'claimed';
+  return {type, confidence, evidence, relevant};
+}
+function evidenceTypeLabel(type){
+  return {certificate:'Certificate',project:'Verified project',assessment:'Assessment/Test',feedback:'Manager feedback'}[type] || type;
+}
+function showSkillEvidence(empId, skillName, type){
+  ui.evidence = {empId, skillName, type};
+  renderCurrentView();
+}
+function reportDocument(title, content){
+  return `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>${escapePassportText(title)}</title><style>body{margin:0;background:#f4f6f4;color:#1a1a1a;font:14px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;padding:32px}.report{max-width:1000px;margin:auto;background:#fff;border:1px solid #dfe5df;padding:32px}.brand{color:#2f6f4e;font-size:22px;font-weight:700;border-bottom:2px solid #2f6f4e;padding-bottom:16px}.meta{color:#68726b;margin:16px 0 22px}table{width:100%;border-collapse:collapse}th,td{text-align:left;padding:11px 9px;border-bottom:1px solid #e2e6e2}th{font-size:11px;color:#68726b;text-transform:uppercase;background:#f4f6f4}td strong{color:#2f6f4e}@media(max-width:700px){body{padding:12px}.report{padding:18px;overflow-x:auto}table{min-width:700px}}</style></head><body><main class="report"><div class="brand">Passage</div><h1>${escapePassportText(title)}</h1>${content}</main></body></html>`;
+}
+function downloadSkillEvidence(empId){
+  const emp = state.employees.find(employee=>employee.id===empId);
+  const rows = emp.skills.map(skill=>{
+    const classification = classifySkill(emp,skill);
+    const sources = Object.keys(classification.evidence).filter(key=>classification.evidence[key]).map(key=>key==='resume'?'Resume':evidenceTypeLabel(key)).join(', ');
+    return `<tr><td><strong>${escapePassportText(skill.name)}</strong></td><td>${skill.level}/5</td><td><strong>${classification.confidence}%</strong></td><td>${escapePassportText(sources)}</td><td>${classification.relevant?'Relevant':'Outside career goal'}</td></tr>`;
+  }).join('');
+  const report = reportDocument(`Skill Intelligence - ${emp.name}`, `<p class="meta">Employee: <strong>${escapePassportText(emp.name)}</strong> · ${escapePassportText(emp.designation)} · Generated ${new Date().toLocaleString()}</p><table><thead><tr><th>Skill</th><th>Level</th><th>Confidence</th><th>Evidence</th><th>Career relevance</th></tr></thead><tbody>${rows}</tbody></table>`);
+  const blob = new Blob([report], {type:'text/html'});
+  const link = document.createElement('a');
+  link.href = URL.createObjectURL(blob);
+  link.download = `${emp.name.replace(/[^a-z0-9]+/gi,'-').toLowerCase()}-skill-intelligence.html`;
+  link.click();
+  URL.revokeObjectURL(link.href);
+}
+function submitSkillEvidence(empId){
+  const skillName = document.getElementById('evidence-skill').value.trim();
+  const type = document.getElementById('evidence-type').value;
+  const title = document.getElementById('evidence-title').value.trim();
+  const details = document.getElementById('evidence-details').value.trim();
+  const level = Math.max(1,Math.min(5,parseInt(document.getElementById('evidence-level').value,10)||3));
+  if(!skillName || !title){ showToast('Add a skill and evidence title'); return; }
+  const emp = state.employees.find(employee=>employee.id===empId);
+  let skill = emp.skills.find(item=>skillKey(item.name)===skillKey(skillName));
+  if(!skill){ skill = {name:skillName,level:Math.min(level,3)}; emp.skills.push(skill); }
+  skill.level = Math.max(skill.level, type==='certificate' ? Math.min(level,3) : level);
+  emp.skillEvidence = emp.skillEvidence || [];
+  emp.skillEvidence.unshift({id:uid('evidence'),skillKey:skillKey(skill.name),skillName:skill.name,type,title,details,level,date:todayISO(),submittedBy:session.name});
+  saveState().then(()=>{ ui.evidence=null; renderCurrentView(); showToast(`${skill.name} evidence submitted and skill profile updated`); });
+}
+function skillEvidenceDetail(emp, skillName){
+  if(!ui.evidence || ui.evidence.empId!==emp.id || skillKey(ui.evidence.skillName)!==skillKey(skillName)) return '';
+  const records = (emp.skillEvidence || []).filter(record=>record.skillKey===skillKey(ui.evidence.skillName) && record.type===ui.evidence.type);
+  return `<div class="evidence-detail"><strong>${evidenceTypeLabel(ui.evidence.type)} details</strong><br>${records.length ? records.map(record=>`${record.title}${record.details?` — ${record.details}`:''} (${record.date})`).join('<br>') : 'No submitted details for this source yet.'}</div>`;
+}
+function skillIntelligenceCards(emp){
+  return emp.skills.map(skill=>{
+    const classification = classifySkill(emp,skill);
+    const label = classification.type==='demonstrated' ? 'Demonstrated' : classification.type==='verified' ? 'Verified' : 'Claimed';
+    const evidenceLabels = [['resume','Resume'],['certificate','Certificate'],['project','Verified project'],['assessment','Assessment/Test'],['feedback','Manager feedback']];
+    const evidenceList = evidenceLabels.map(([key,name])=>`<button class="evidence-link" onclick="showSkillEvidence('${emp.id}','${skill.name}','${key}')" style="${classification.evidence[key]?'color:var(--primary);':''}">${classification.evidence[key]?'✓':'○'} ${name}</button>`).join('');
+    return `<div class="intelligence-card"><h3>${skill.name} · L${skill.level}/5</h3><div class="confidence">${classification.confidence}%</div><div class="meta">Skill Confidence Score</div><span class="classification-badge ${classification.type}">${label}</span><div class="evidence-links">${evidenceList}</div><div class="meta">${classification.relevant ? 'Relevant to career goal' : 'Outside current career goal'}</div>${skillEvidenceDetail(emp,skill.name)}</div>`;
+  }).join('');
+}
+function empSkillIntelligence(emp){
+  const demonstrated = emp.skills.filter(skill=>classifySkill(emp,skill).type==='demonstrated').length;
+  const verified = emp.skills.filter(skill=>classifySkill(emp,skill).type==='verified').length;
+  const claimed = emp.skills.length-demonstrated-verified;
+  return `<div class="page-head"><div><h1>Skill intelligence</h1><p class="sub">Submit evidence, inspect each source, and download your Skill Confidence Score.</p></div></div>
+    <div class="kpi-row"><div class="kpi"><div class="label">Demonstrated</div><div class="val">${demonstrated}</div></div><div class="kpi"><div class="label">Verified</div><div class="val">${verified}</div></div><div class="kpi"><div class="label">Claimed only</div><div class="val">${claimed}</div></div></div>
+    <div class="panel"><h2>Submit evidence</h2><p class="panel-sub">Add a certificate, verified project, assessment or manager feedback. Your skill profile updates automatically.</p><div class="form-grid"><div class="form-field"><label>Skill</label><input id="evidence-skill" list="evidence-skill-list" placeholder="e.g. Java"><datalist id="evidence-skill-list">${emp.skills.map(skill=>`<option value="${skill.name}">`).join('')}</datalist></div><div class="form-field"><label>Evidence type</label><select id="evidence-type"><option value="certificate">Certificate</option><option value="project">Verified Project</option><option value="assessment">Assessment/Test</option><option value="feedback">Manager Feedback</option></select></div><div class="form-field"><label>Title</label><input id="evidence-title" placeholder="e.g. Java assessment - 92%"></div><div class="form-field"><label>Observed level (1-5)</label><input id="evidence-level" type="number" min="1" max="5" value="3"></div><div class="form-field full"><label>Details</label><textarea id="evidence-details" placeholder="Add a link, project outcome, score or feedback note"></textarea></div></div><div class="evidence-actions"><button class="btn btn-primary btn-small" onclick="submitSkillEvidence('${emp.id}')">Submit evidence</button><button class="btn btn-ghost btn-small" onclick="downloadSkillEvidence('${emp.id}')">Download report</button></div></div>
+    <div class="panel"><h2>Claim versus proof</h2><p class="panel-sub">Click any evidence source to inspect its submitted details.</p><div class="intelligence-grid">${skillIntelligenceCards(emp) || '<div class="empty-state"><h3>No skills to classify</h3><p>Add skills to build your intelligence profile.</p></div>'}</div><p class="intelligence-legend"><b>Resume:</b> claimed baseline. <b>Certificate:</b> verified learning. <b>Verified project:</b> practical experience. <b>Assessment/Test:</b> observed proficiency. <b>Manager feedback:</b> workplace validation.</p></div>`;
+}
+function orgSkillIntelligence(){
+  return `<div class="page-head"><div><h1>Skill intelligence</h1><p class="sub">Review evidence-backed skill confidence across the organization.</p></div><button class="btn btn-ghost btn-small" onclick="downloadOrgSkillEvidence()">Download org report</button></div>${state.employees.map(emp=>`<div class="panel"><h2>${escapePassportText(emp.name)}</h2><p class="panel-sub">${emp.designation} · ${emp.department}</p><div class="intelligence-grid">${skillIntelligenceCards(emp)}</div></div>`).join('')}`;
+}
+function downloadOrgSkillEvidence(){
+  const rows = state.employees.flatMap(emp=>emp.skills.map(skill=>{
+    const classification = classifySkill(emp,skill);
+    const sources = Object.keys(classification.evidence).filter(key=>classification.evidence[key]).map(key=>key==='resume'?'Resume':evidenceTypeLabel(key)).join(', ');
+    return `<tr><td>${escapePassportText(emp.name)}</td><td>${escapePassportText(skill.name)}</td><td>${skill.level}/5</td><td><strong>${classification.confidence}%</strong></td><td>${escapePassportText(sources)}</td><td>${classification.relevant?'Relevant':'Outside career goal'}</td></tr>`;
+  })).join('');
+  const report = reportDocument('Organization Skill Intelligence', `<p class="meta">Generated ${new Date().toLocaleString()} · ${state.employees.length} employees</p><table><thead><tr><th>Employee</th><th>Skill</th><th>Level</th><th>Confidence</th><th>Evidence</th><th>Career relevance</th></tr></thead><tbody>${rows}</tbody></table>`);
+  const blob = new Blob([report], {type:'text/html'});
+  const link = document.createElement('a');
+  link.href = URL.createObjectURL(blob);
+  link.download = 'passage-organization-skill-intelligence.html';
+  link.click();
+  URL.revokeObjectURL(link.href);
+}
+
+function renderEmployee(){
+  const emp = currentEmp();
+  switch(ui.empTab){
+    case 'profile': return empProfile(emp);
+    case 'opportunities': return empAIProjectMatching(emp);
+    case 'intelligence': return empSkillIntelligence(emp);
+    case 'passport': return empPassport(emp);
+    default: return '';
+  }
+}
+
+function empProfile(emp){
+  const skillRows = emp.skills.map(s=>`
+    <span class="skill-tag-edit">${s.name}
+      <input type="range" min="1" max="5" value="${s.level}" oninput="updateSkillLevel('${emp.id}','${s.name}',this.value)">
+      <span style="font-weight:600;">${s.level}/5</span>
+      <span class="x" onclick="removeSkill('${emp.id}','${s.name}')">&times;</span>
+    </span>`).join('');
+  const addOptions = skillsForDomain(emp.careerGoal).filter(s=>!emp.skills.find(x=>x.name===s)).map(s=>`<option value="${s}">${s}</option>`).join('');
+  return `
+  <div class="page-head"><div><h1>Your profile</h1><p class="sub">Keep your skills and career direction up to date to discover relevant opportunities.</p></div></div>
+  <div class="panel">
+    <h2>${escapePassportText(emp.name)}</h2>
+    <p class="panel-sub">${emp.designation} · ${emp.department} · ${emp.experienceYears} yrs experience · joined ${emp.joiningDate}</p>
+    <div class="kpi-row" style="margin:14px 0 0;">
+      <div class="kpi"><div class="label">Opportunity Equity</div><div class="val">${emp.opportunityEquityScore ?? equityScore(emp,state.employees)}<small>/100</small></div></div>
+      <div class="kpi"><div class="label">Skills in your profile</div><div class="val">${emp.skills.length}</div></div>
+      <div class="kpi"><div class="label">Career direction</div><div class="val" style="font-size:15px;">${escapePassportText(emp.careerGoal || 'Not set yet')}</div></div>
+    </div>
+    <button class="btn btn-ghost btn-small" style="margin-top:14px;" onclick="calculateOpportunityEquityScore('${emp.id}')">Recalculate equity score</button>
+    <div class="form-grid" style="margin-top:14px;">
+      <div class="form-field"><label>Career domain</label>
+        <input list="career-domains-${emp.id}" value="${emp.careerGoal || ''}" onchange="updateGoal('${emp.id}',this.value)" placeholder="e.g. Backend Engineering">
+        <datalist id="career-domains-${emp.id}">${CAREER_DOMAINS.map(domain=>`<option value="${domain}">`).join('')}</datalist>
+      </div>
+    </div>
+  </div>
+
+  ${empEquityDetails(emp)}
+
+  <div class="panel">
+    <h2>Skills</h2>
+    <p class="panel-sub">Drag a slider to adjust proficiency, or add a new skill.</p>
+    <div>${skillRows || '<p class="hint">No skills listed yet.</p>'}</div>
+    <div style="margin-top:16px; display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
+      <select id="new-skill-${emp.id}" style="padding:9px 12px; border:1.5px solid var(--line); border-radius:8px;">
+        <option value="">Add a skill…</option>${addOptions}
+      </select>
+      <button class="btn btn-ghost btn-small" onclick="addSkill('${emp.id}')">Add</button>
+    </div>
+  </div>`;
+}
+function empEquityDetails(emp){
+  const avg = orgAvgEquity();
+  const overlooked = isOverlooked(emp);
+  return `
+  <div class="panel">
+    <h2>Opportunity Equity</h2>
+    <p class="panel-sub">See how your opportunity exposure compares across the organization.</p>
+    <div class="kpi-row">
+      <div class="kpi"><div class="label">Org average</div><div class="val">${avg}</div></div>
+      <div class="kpi"><div class="label">Projects completed</div><div class="val">${countType(emp,'Project')}</div></div>
+      <div class="kpi"><div class="label">Status</div><div class="val" style="font-size:16px; color:${overlooked?'var(--warn)':'var(--primary)'};">${overlooked?'Flagged — under-exposed':'On track'}</div></div>
+    </div>
+    ${overlooked ? `<div class="equity-warning"><h3>You may be missing opportunities</h3><p>You match strongly (82%+) with at least one open opportunity, but your recent exposure is below the team average. Consider applying, or raise it with your manager.</p></div>` : ''}
+    <h2>How your score is calculated</h2>
+    <p class="panel-sub">Your score reflects project and mentorship exposure, skill growth, and how recently you participated in opportunities.</p>
+    <div class="formula-equation">Project exposure 35% · Mentorship exposure 25% · Skill growth 20% · Recent activity 20%</div>
+  </div>
+  `;
+}
+async function updateSkillLevel(empId, skillName, val){
+  const emp = state.employees.find(e=>e.id===empId);
+  emp.skills.find(s=>s.name===skillName).level = parseInt(val,10);
+  emp.opportunityEquityScore = null;
+  await saveState(); renderCurrentView();
+}
+async function removeSkill(empId, skillName){
+  const emp = state.employees.find(e=>e.id===empId);
+  emp.skills = emp.skills.filter(s=>s.name!==skillName);
+  emp.opportunityEquityScore = null;
+  await saveState(); renderCurrentView();
+}
+async function addSkill(empId){
+  const sel = document.getElementById('new-skill-'+empId);
+  if(!sel.value) return;
+  const emp = state.employees.find(e=>e.id===empId);
+  emp.skills.push({name:sel.value, level:3});
+  emp.opportunityEquityScore = null;
+  await saveState(); renderCurrentView();
+}
+async function updateGoal(empId, val){
+  const emp = state.employees.find(e=>e.id===empId);
+  emp.careerGoal = val.trim();
+  emp.opportunityEquityScore = null;
+  await saveState(); renderCurrentView();
+}
+async function calculateOpportunityEquityScore(empId){
+  const emp = state.employees.find(e=>e.id===empId);
+  if(!emp.skills.length){ showToast('Add at least one skill to calculate'); return; }
+  
+  // Unique Formula: Opportunity Equity Score
+  // Combines: Skill Depth (40%) + Career Readiness (30%) + Skill Diversity (20%) + Experience Factor (10%)
+  
+  // 1. Skill Depth: Average proficiency level
+  const avgSkillLevel = emp.skills.reduce((sum, s)=>sum + s.level, 0) / emp.skills.length;
+  const skillDepth = (avgSkillLevel / 5) * 100;  // 0-100 scale
+  
+  // 2. Career Readiness: Alignment with career goal + opportunity history
+  const careerReadiness = emp.careerGoal ? 80 + (countType(emp, 'Project') * 5) : 60;
+  const normalizedReadiness = Math.min(careerReadiness, 100);
+  
+  // 3. Skill Diversity: Variance in skill levels (higher variance = more rounded)
+  const mean = avgSkillLevel;
+  const variance = emp.skills.reduce((sum, s)=>sum + Math.pow(s.level - mean, 2), 0) / emp.skills.length;
+  const skillDiversity = Math.min((variance / 4) * 100, 100);  // Normalize to 0-100
+  
+  // 4. Experience Factor: Years of experience + skill count growth
+  const experienceFactor = Math.min(50 + (emp.experienceYears * 5) + (emp.skills.length * 2), 100);
+  
+  // Calculate weighted score
+  emp.opportunityEquityScore = Math.round(
+    (skillDepth * 0.40) + 
+    (normalizedReadiness * 0.30) + 
+    (skillDiversity * 0.20) + 
+    (experienceFactor * 0.10)
+  );
+  
+  await saveState();
+  renderCurrentView();
+  showToast(`Opportunity Equity Score calculated: ${emp.opportunityEquityScore}/100`);
+}
+  async function calculateOpportunityEquityScore(empId){
+    const emp = state.employees.find(e=>e.id===empId);
+    if(!emp.skills.length){ showToast('Add at least one skill to calculate'); return; }
+  
+    try {
+      // ═══════════════════════════════════════════════════════════════════════════════
+      // OPPORTUNITY EQUITY SCORE FORMULA (Complete Definition)
+      // ═══════════════════════════════════════════════════════════════════════════════
+      // Purpose: Holistic measure of professional readiness and opportunity access
+      // Range: 0-100 (0 = beginner, 100 = expert ready)
+      // Components: 4 independent factors combined with weighted average
+      // ═══════════════════════════════════════════════════════════════════════════════
+    
+      // COMPONENT 1: SKILL DEPTH (Weight: 40%) ─────────────────────────────────
+      // Definition: Average proficiency level across all skills
+      // Logic: Higher proficiency = higher score
+      // Range: 0-100
+      // Formula: (Sum of all skill levels / Number of skills) / 5 × 100
+      // Edge Cases:
+      //   • No skills: Handled by early return check
+      //   • Single skill: Works correctly (avg = that skill's level)
+      //   • All skills level 5: = 100
+      //   • All skills level 1: = 20
+      const skillLevels = emp.skills.map(s => s.level || 1); // Default to 1 if missing
+      const avgSkillLevel = skillLevels.reduce((sum, lvl) => sum + lvl, 0) / skillLevels.length;
+      const skillDepth = Math.min(Math.max((avgSkillLevel / 5) * 100, 0), 100); // Clamp 0-100
+    
+      // COMPONENT 2: CAREER READINESS (Weight: 30%) ──────────────────────────
+      // Definition: Career goal alignment + project/opportunity engagement
+      // Logic: Having goals + completing projects = higher readiness
+      // Range: 60-100
+      // Formula:
+      //   • If careerGoal set: 80 + (Project Count × 5) capped at 100
+      //   • If NO careerGoal: 60 (baseline without direction)
+      // Rationale: 
+      //   - Base 80 = has direction (strong advantage)
+      //   - Base 60 = no direction (growth potential but unaligned)
+      //   - +5 per project = engagement reward (max +20 for 4+ projects)
+      // Edge Cases:
+      //   • No goal + no projects: = 60 (room to grow)
+      //   • Goal + 0 projects: = 80 (directional ready)
+      //   • Goal + 5+ projects: = 100 (highly engaged, capped)
+      const projectCount = countType(emp, 'Project') || 0; // Default to 0 if undefined
+      const hasCareerGoal = emp.careerGoal && emp.careerGoal.trim().length > 0;
+      const baseReadiness = hasCareerGoal ? 80 : 60;
+      const careerReadiness = Math.min(baseReadiness + (projectCount * 5), 100);
+    
+      // COMPONENT 3: SKILL DIVERSITY (Weight: 20%) ──────────────────────────
+      // Definition: Variance in skill proficiency levels
+      // Logic: Higher variance = more well-rounded; Low variance = specialist
+      // Range: 0-100
+      // Formula: (Statistical Variance / 4) × 100, capped at 100
+      // Variance Calculation: Sum of (each skill level - average)² / skill count
+      // Interpretation:
+      //   • Variance 0 (all levels equal): Score = 0 (specialist, not rounded)
+      //   • Variance 4 (high spread): Score = 100 (highly diverse skills)
+      //   • Variance 1-2 (typical): Score = 25-50 (balanced skill range)
+      // Edge Cases:
+      //   • Single skill: Variance = 0 (specialist), Diversity = 0
+      //   • Two skills (level 1 & 5): Variance = 4, Diversity = 100
+      //   • All skills same level: Variance = 0, Diversity = 0 (specialist track)
+      const mean = avgSkillLevel;
+      const varianceSum = skillLevels.reduce((sum, lvl) => sum + Math.pow(lvl - mean, 2), 0);
+      const variance = varianceSum / skillLevels.length;
+      const skillDiversity = Math.min(Math.max((variance / 4) * 100, 0), 100); // Clamp 0-100
+    
+      // COMPONENT 4: EXPERIENCE FACTOR (Weight: 10%) ─────────────────────────
+      // Definition: Years of service + accumulated skill breadth
+      // Logic: More years + more skills = more experienced
+      // Range: 50-100
+      // Formula: 50 + (Years × 5) + (Skill Count × 2), capped at 100
+      // Rationale:
+      //   - Base 50 = foundation (junior with any experience)
+      //   - +5 per year = tenure value (1yr = +5, 10yr = +50)
+      //   - +2 per skill = breadth value (1 skill = +2, 10 skills = +20)
+      // Edge Cases:
+      //   • 0 years, 1 skill: = 52 (brand new, narrow)
+      //   • 5 years, 5 skills: = 75 (mid-career, diverse)
+      //   • 10 years, 15 skills: = 100 (capped, very senior)
+      const yearsExp = Math.max(emp.experienceYears || 0, 0); // Prevent negative
+      const skillCount = emp.skills.length || 1; // At least 1 (guaranteed by earlier check)
+      const experienceFactor = Math.min(50 + (yearsExp * 5) + (skillCount * 2), 100);
+    
+      // ═══════════════════════════════════════════════════════════════════════════════
+      // FINAL SCORE CALCULATION (Weighted Average)
+      // ═══════════════════════════════════════════════════════════════════════════════
+      // Weights: 40% + 30% + 20% + 10% = 100%
+      // All components scaled 0-100 for equal comparison
+      // Formula: (Depth × 0.40) + (Readiness × 0.30) + (Diversity × 0.20) + (Experience × 0.10)
+      // Result: Integer 0-100, rounded to nearest whole number
+      // Example Distribution:
+      //   Component     Weight  Contribution to 100
+      //   Depth         40%     = 40 points max
+      //   Readiness     30%     = 30 points max
+      //   Diversity     20%     = 20 points max
+      //   Experience    10%     = 10 points max
+      // ═══════════════════════════════════════════════════════════════════════════════
+    
+      const finalScore = 
+        (skillDepth * 0.40) + 
+        (careerReadiness * 0.30) + 
+        (skillDiversity * 0.20) + 
+        (experienceFactor * 0.10);
+    
+      emp.opportunityEquityScore = Math.round(Math.max(Math.min(finalScore, 100), 0)); // Ensure 0-100
+    
+      // Validation: Verify score is valid
+      if (isNaN(emp.opportunityEquityScore)) {
+        console.error('Invalid score calculation:', { skillDepth, careerReadiness, skillDiversity, experienceFactor });
+        emp.opportunityEquityScore = 50; // Fallback to neutral score
+        showToast('Score calculated (fallback applied)');
+      } else {
+        await saveState();
+        renderCurrentView();
+        showToast(`Opportunity Equity Score: ${emp.opportunityEquityScore}/100`);
+      }
+    } catch(err) {
+      console.error('Error calculating Opportunity Equity Score:', err);
+      showToast('Error calculating score. Please try again.');
+    }
+  }
+
+function pctClass(p){ return p>=80?'hi':p>=55?'mid':'lo'; }
+
+function oppTicket(opp, emp, opts){
+  opts = opts || {};
+  const m = computeMatch(emp, opp);
+  const applied = state.applications.find(a=>a.employeeId===emp.id && a.opportunityId===opp.id);
+  const skillsHtml = opp.requiredSkills.map(rs=>{
+    const has = empSkillLevel(emp, rs.name) >= rs.level;
+    return `<span class="skill-chip" style="${has?'border-color:var(--primary); color:var(--primary);':''}">${rs.name} · L${rs.level}</span>`;
+  }).join('');
+  const actionBtn = applied
+    ? `<span class="badge-ok">${applied.status==='assigned'?'Assigned':applied.status==='completed'?'Completed':'Applied'}</span>`
+    : `<button class="btn btn-primary btn-small" onclick="applyToOpp('${emp.id}','${opp.id}')">Apply</button>`;
+  return `
+  <div class="ticket">
+    <div class="ticket-main">
+      <div class="row1"><span class="pill pill-${opp.type.toLowerCase()}">${opp.type}</span><h3>${opp.title}</h3></div>
+      <p class="desc">${opp.description}</p>
+      <div>${skillsHtml}</div>
+      ${opp.patterns && opp.patterns.length ? `<div style="margin-top:8px;">${opp.patterns.map(p=>`<span class="skill-chip" style="background:var(--info-soft); color:var(--info); border-color:var(--info);">${p}</span>`).join('')}</div>` : ''}
+      <div class="ticket-meta"><span>⏱ ${opp.duration}</span><span>👥 ${opp.openPositions} open</span><span>🎯 ${opp.domain}</span></div>
+      ${opts.showReason ? `<div class="reason-box"><b>Why this match:</b> ${matchReason(emp, opp, m)}</div>` : ''}
+    </div>
+    <div class="ticket-side">
+      <div class="pct ${pctClass(m.score)}">${m.score}%</div>
+      <div class="lbl">match</div>
+      ${actionBtn}
+    </div>
+  </div>`;
+}
+async function applyToOpp(empId, oppId){
+  const opp = state.opportunities.find(o=>o.id===oppId);
+  if(opp.status!=='open'){ showToast('This opportunity is closed'); return; }
+  const emp = state.employees.find(e=>e.id===empId);
+  const m = computeMatch(emp, opp);
+  state.applications.push({ id:uid('app'), employeeId:empId, opportunityId:oppId, status:'applied', matchScore:m.score, reason:matchReason(emp,opp,m), date:todayISO() });
+  await saveState(); renderCurrentView();
+  showToast('Application submitted — a manager will review it');
+}
+
+function empAIProjectMatching(emp){
+  const projects = state.opportunities.filter(o=>o.type==='Project' && o.status==='open');
+  const hasAnalysisData = emp.aiAnalysisInput && emp.aiAnalysisInput.trim().length > 0;
+  
+  let analysisHtml = '';
+  if(hasAnalysisData){
+    const inputSkills = emp.aiAnalysisInput.split(',').map(s=>({name:s.trim(), level:3})).filter(s=>s.name.length>0);
+    const tempEmp = {...emp, skills:inputSkills};
+    const ranked = projects.map(p=>({p, m:computeMatch(tempEmp,p)})).sort((a,b)=>b.m.score-a.m.score);
+    analysisHtml = ranked.length ? ranked.map(r=>oppTicket(r.p, tempEmp, {showReason:true})).join('') : 
+      `<div class="panel empty-state"><h3>No matching projects</h3><p>Try adding different skills.</p></div>`;
+  }
+  
+  return `
+  <div class="page-head"><div><h1>Opportunities</h1><p class="sub">Analyze your skills to discover the projects that fit you best.</p></div></div>
+  
+  <div class="panel">
+    <h2>Analyze Skills Against Projects</h2>
+    <p class="panel-sub">Enter skills (comma-separated) to see AI-powered project recommendations.</p>
+    <div style="display:flex; gap:12px; align-items:flex-end; flex-wrap:wrap;">
+      <div style="flex:1; min-width:250px;">
+        <label style="display:block; font-size:12.5px; font-weight:600; color:var(--text-muted); margin-bottom:6px;">Enter skills (e.g., Java, Python, React)</label>
+        <input id="ai-skill-input-${emp.id}" type="text" placeholder="Java, Spring Boot, SQL, Docker" value="${emp.aiAnalysisInput || ''}" style="width:100%; padding:9px 11px; border:1px solid var(--border); border-radius:6px; font-family:var(--sans); font-size:14px; background:var(--bg);">
+      </div>
+      <button class="btn btn-primary" onclick="analyzeSkills('${emp.id}')">Analyze</button>
+      ${hasAnalysisData ? `<button class="btn btn-ghost" onclick="clearAnalysis('${emp.id}')">Clear</button>` : ''}
+    </div>
+  </div>
+  
+  ${hasAnalysisData ? `<div class="panel" style="background:var(--primary-soft); border-color:var(--primary); margin-bottom:16px;">
+    <p style="margin:0; color:var(--primary); font-weight:600;">📊 Analysis Results for: <strong>${emp.aiAnalysisInput}</strong></p>
+  </div>` : ''}
+  
+  ${hasAnalysisData ? analysisHtml : 
+    `<div class="panel empty-state"><h3>Enter skills to get started</h3><p>Input your skills above and click "Analyze" to see AI-ranked project matches.</p></div>`}`;
+}
+
+async function analyzeSkills(empId){
+  const emp = state.employees.find(e=>e.id===empId);
+  const input = document.getElementById('ai-skill-input-'+empId).value.trim();
+  if(!input){ showToast('Enter at least one skill'); return; }
+  emp.aiAnalysisInput = input;
+  await saveState();
+  renderCurrentView();
+}
+
+async function clearAnalysis(empId){
+  const emp = state.employees.find(e=>e.id===empId);
+  emp.aiAnalysisInput = '';
+  await saveState();
+  renderCurrentView();
+}
+
+function createPassportSnapshot(emp){
+  return {
+    id: uid('passport'),
+    generatedAt: new Date().toISOString(),
+    employee: { id: emp.id, name: emp.name, email: emp.email, designation: emp.designation, department: emp.department, experienceYears: emp.experienceYears, joiningDate: emp.joiningDate },
+    careerDomain: emp.careerGoal || '',
+    skillScore: emp.skillScore == null ? null : emp.skillScore,
+    skills: emp.skills.map(skill=>({name:skill.name, level:skill.level})),
+    passportStamps: emp.passport.map(stamp=>({...stamp})),
+    records: emp.opportunityHistory.map(record=>({...record, details: record.details || ''}))
+  };
+}
+function passportRecords(emp){
+  return emp.opportunityHistory.slice().sort((a,b)=>new Date(b.date)-new Date(a.date));
+}
+function formatPassportDate(date){
+  return new Date(date).toLocaleDateString(undefined, {year:'numeric', month:'short', day:'numeric'});
+}
+function escapePassportText(value){
+  return String(value == null ? '' : value).replace(/[&<>'"]/g, character=>({
+    '&':'&amp;', '<':'&lt;', '>':'&gt;', "'":'&#39;', '"':'&quot;'
+  }[character]));
+}
+function passportDownload(snapshot){
+  const skills = snapshot.skills.map(skill=>`<tr><td>${escapePassportText(skill.name)}</td><td>${skill.level}/5</td></tr>`).join('');
+  const records = snapshot.records.map(record=>`<tr><td>${escapePassportText(record.type)}</td><td><b>${escapePassportText(record.title)}</b>${record.details ? `<br><small>${escapePassportText(record.details)}</small>` : ''}</td><td>${formatPassportDate(record.date)}</td><td class="${escapePassportText(record.outcome)}">${escapePassportText(record.outcome)}</td></tr>`).join('');
+  const stamps = snapshot.passportStamps.map(stamp=>`<span class="stamp">${escapePassportText(stamp.skill)}<small>${escapePassportText(stamp.source)}</small></span>`).join('');
+  const documentHtml = `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>Growth Passport - ${escapePassportText(snapshot.employee.name)}</title><style>
+    *{box-sizing:border-box}body{margin:0;background:#f3f5f2;color:#1a1a1a;font:14px Arial,sans-serif;padding:32px}.receipt{max-width:760px;margin:auto;background:#fff;border:1px solid #d8ded9;padding:36px;box-shadow:0 8px 24px #1a1a1a12}.header{display:flex;justify-content:space-between;gap:20px;border-bottom:2px solid #2f6f4e;padding-bottom:20px}.brand{color:#2f6f4e;font-size:22px;font-weight:bold}.muted{color:#68726b;font-size:12px}.section{border-bottom:1px solid #e2e6e2;padding:20px 0}.section:last-child{border-bottom:0}.section h2{font-size:15px;margin:0 0 12px;color:#2f6f4e}.details{display:grid;grid-template-columns:1fr 1fr;gap:10px}.detail b{display:block;font-size:11px;color:#68726b;text-transform:uppercase;margin-bottom:3px}.detail span{font-weight:600}.score{font-size:28px;font-weight:bold;color:#2f6f4e}table{width:100%;border-collapse:collapse}th,td{text-align:left;padding:9px 6px;border-bottom:1px solid #e2e6e2}th{font-size:11px;color:#68726b;text-transform:uppercase}.completed{color:#2f6f4e;font-weight:bold}.pending{color:#b5651d;font-weight:bold}.in-progress{color:#3b6fa0;font-weight:bold}.stamp{display:inline-flex;flex-direction:column;gap:3px;border:1px solid #c9dbcd;border-radius:5px;padding:9px 12px;margin:0 7px 7px 0;color:#2f6f4e;font-weight:bold}.stamp small{color:#68726b;font-weight:normal}.footer{text-align:center;color:#68726b;font-size:11px;margin-top:24px}@media print{body{padding:0;background:#fff}.receipt{border:0;box-shadow:none}}
+  </style></head><body><main class="receipt">
+    <header class="header"><div><div class="brand">Passage</div><div class="muted">Growth Record Passport</div></div><div class="muted">Generated ${escapePassportText(formatPassportDate(snapshot.generatedAt))}</div></header>
+    <section class="section"><h2>Employee Details</h2><div class="details"><div class="detail"><b>Name</b><span>${escapePassportText(snapshot.employee.name)}</span></div><div class="detail"><b>Email</b><span>${escapePassportText(snapshot.employee.email)}</span></div><div class="detail"><b>Designation</b><span>${escapePassportText(snapshot.employee.designation)}</span></div><div class="detail"><b>Department</b><span>${escapePassportText(snapshot.employee.department)}</span></div><div class="detail"><b>Career Domain</b><span>${escapePassportText(snapshot.careerDomain || 'Not set')}</span></div><div class="detail"><b>Experience</b><span>${escapePassportText(snapshot.employee.experienceYears)} years</span></div><div class="detail"><b>Joining Date</b><span>${escapePassportText(snapshot.employee.joiningDate)}</span></div><div class="detail"><b>Skill Score</b><span class="score">${snapshot.skillScore == null ? 'Not calculated' : `${snapshot.skillScore}/100`}</span></div></div></section>
+    <section class="section"><h2>Skills</h2><table><thead><tr><th>Skill</th><th>Level</th></tr></thead><tbody>${skills || '<tr><td colspan="2">No skills added</td></tr>'}</tbody></table></section>
+    <section class="section"><h2>Past Records</h2><table><thead><tr><th>Type</th><th>Record</th><th>Date</th><th>Status</th></tr></thead><tbody>${records || '<tr><td colspan="4">No records yet</td></tr>'}</tbody></table></section>
+    <section class="section"><h2>Growth Stamps</h2>${stamps || '<span class="muted">No growth stamps yet</span>'}</section>
+    <div class="footer">This passport is a record of growth activity in Passage.</div>
+  </main></body></html>`;
+  const blob = new Blob([documentHtml], {type:'text/html'});
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = `${snapshot.employee.name.replace(/[^a-z0-9]+/gi, '-').toLowerCase()}-growth-passport.html`;
+  link.click();
+  URL.revokeObjectURL(url);
+}
+async function generatePassport(empId){
+  const emp = state.employees.find(e=>e.id===empId);
+  emp.passportDraft = createPassportSnapshot(emp);
+  await saveState();
+  renderCurrentView();
+  showToast('Passport generated — save it to keep this version');
+}
+async function savePassport(empId){
+  const emp = state.employees.find(e=>e.id===empId);
+  const snapshot = emp.passportDraft || createPassportSnapshot(emp);
+  emp.passportVersions = emp.passportVersions || [];
+  emp.passportVersions.unshift(snapshot);
+  emp.passportDraft = null;
+  await saveState();
+  passportDownload(snapshot);
+  renderCurrentView();
+  showToast('Passport saved and downloaded');
+}
+async function addPassportRecord(empId){
+  const title = document.getElementById('passport-record-title').value.trim();
+  if(!title){ showToast('Add a title for this work'); return; }
+  const emp = state.employees.find(e=>e.id===empId);
+  emp.opportunityHistory.push({
+    type: document.getElementById('passport-record-type').value,
+    title,
+    date: document.getElementById('passport-record-date').value || todayISO(),
+    outcome: document.getElementById('passport-record-status').value,
+    details: document.getElementById('passport-record-details').value.trim()
+  });
+  emp.passportDraft = null;
+  await saveState();
+  renderCurrentView();
+  showToast('Work added to your passport');
+}
+function empPassport(emp){
+  const entries = emp.passport.slice().reverse();
+  const records = passportRecords(emp);
+  const versions = emp.passportVersions || [];
+  const draft = emp.passportDraft;
+  return `
+  <div class="page-head"><div><h1>Growth Record Passport</h1><p class="sub">Generate a current snapshot of what you've built, learned and been trusted with.</p></div></div>
+  <div class="panel">
+    <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:16px; flex-wrap:wrap;">
+      <div><h2>Career journey</h2><p class="panel-sub">${countType(emp,'Project')} projects · ${countType(emp,'Mentorship')} mentorships</p></div>
+      <div style="display:flex; gap:8px; flex-wrap:wrap;">
+        <button class="btn btn-ghost btn-small" onclick="generatePassport('${emp.id}')">Generate Passport</button>
+        <button class="btn btn-primary btn-small" onclick="savePassport('${emp.id}')" ${draft?'':'disabled'}>Save &amp; Download Passport</button>
+      </div>
+    </div>
+    ${draft ? `<div class="reason-box"><b>Passport ready:</b> generated ${formatPassportDate(draft.generatedAt)} with ${draft.records.length} tracked record(s). Save it to add this version to your history.</div>` : ''}
+  </div>
+  <div class="panel">
+    <h2>Past records</h2>
+    <p class="panel-sub">A running history of projects, contributions and other work.</p>
+    ${records.length ? `<table><thead><tr><th>Type</th><th>Record and details</th><th>Date</th><th>Status</th></tr></thead><tbody>${records.map(record=>`<tr><td>${record.type}</td><td><b>${record.title}</b>${record.details ? `<br><span class="hint">${record.details}</span>` : ''}</td><td>${formatPassportDate(record.date)}</td><td>${record.outcome}</td></tr>`).join('')}</tbody></table>` : `<div class="empty-state"><h3>No past records yet</h3><p>Add a project, contribution or other work below.</p></div>`}
+  </div>
+  <div class="panel">
+    <h2>Add personal work</h2>
+    <p class="panel-sub">Add leadership projects, achievements or contributions outside the opportunity system.</p>
+    <div class="form-grid">
+      <div class="form-field"><label>Work title</label><input id="passport-record-title" placeholder="e.g. Leadership Mini Project"></div>
+      <div class="form-field"><label>Work type</label><select id="passport-record-type"><option>Leadership Mini Project</option><option>Other Work</option><option>Achievement</option><option>Volunteer Work</option><option>Certification</option><option>Project</option><option>Mentorship</option></select></div>
+      <div class="form-field"><label>Status</label><select id="passport-record-status"><option value="planned">Planned</option><option value="pending">Pending</option><option value="in-progress">In progress</option><option value="completed">Completed</option><option value="on-hold">On hold</option></select></div>
+      <div class="form-field"><label>Date</label><input id="passport-record-date" type="date" value="${todayISO()}"></div>
+      <div class="form-field full"><label>Details</label><textarea id="passport-record-details" placeholder="Describe your role, contribution and result"></textarea></div>
+    </div>
+    <button class="btn btn-primary btn-small" style="margin-top:16px;" onclick="addPassportRecord('${emp.id}')">Add to Passport</button>
+  </div>
+  <div class="stamp-grid">
+    ${entries.length ? entries.map(p=>`
+      <div class="stamp-card">
+        <div class="stamp-circle">${p.skill.slice(0,2).toUpperCase()}</div>
+        <h4>${p.skill}</h4>
+        <div class="meta">via ${p.source}</div>
+        <div class="meta">${p.date}</div>
+      </div>`).join('') : `<div class="panel empty-state" style="grid-column:1/-1;"><h3>No stamps yet</h3><p>Complete a project, mentorship or course to start your passport.</p></div>`}
+  </div>
+  <div class="panel">
+    <h2>Saved passport versions</h2>
+    <p class="panel-sub">Previous snapshots remain available even after your profile changes.</p>
+    ${versions.length ? versions.map(version=>`<div class="alert-item"><div class="alert-dot" style="background:var(--primary);"></div><div><div class="t">${formatPassportDate(version.generatedAt)} · ${version.records.length} record(s)</div><div class="d">${version.skills.length} skill(s) · ${version.careerDomain || 'No domain set'} <button class="btn btn-ghost btn-small" style="margin-left:8px;" onclick='passportDownload(${JSON.stringify(version).replace(/'/g,"&#39;")})'>Download</button></div></div></div>`).join('') : `<div class="empty-state"><h3>No saved passports yet</h3><p>Generate and save a passport snapshot to build your version history.</p></div>`}
+  </div>`;
+}
+
+/* ======================================================================
+   MANAGER VIEWS
+====================================================================== */
+function renderManager(){
+  switch(ui.mgrTab){
+    case 'team': return mgrTeam();
+    case 'create': return mgrCreate();
+    case 'matching': return mgrMatching();
+    case 'fairness': return mgrFairnessReview();
+    case 'skill-intelligence': return orgSkillIntelligence();
+    case 'alerts': return mgrAlerts();
+    default: return '';
+  }
+}
+function mgrTeam(){
+  const rows = state.employees.map(e=>{
+    const eq = equityScore(e, state.employees);
+    const overlooked = isOverlooked(e);
+    return `<tr>
+      <td><b>${escapePassportText(e.name)}</b><br><span style="color:var(--ink-soft); font-size:12px;">${e.designation}</span></td>
+      <td>${e.skills.map(s=>s.name).slice(0,3).join(', ')}${e.skills.length>3?'…':''}</td>
+      <td>${countType(e,'Project')}</td>
+      <td>${eq}</td>
+      <td>${overlooked ? '<span class="badge-flag">⚑ Overlooked risk</span>' : '<span class="badge-ok">On track</span>'}</td>
+    </tr>`;
+  }).join('');
+  return `
+  <div class="page-head"><div><h1>My team</h1><p class="sub">Skill coverage, exposure and equity at a glance.</p></div></div>
+  <div class="panel">
+    <table>
+      <thead><tr><th>Employee</th><th>Top skills</th><th>Projects</th><th>Equity score</th><th>Status</th></tr></thead>
+      <tbody>${rows}</tbody>
+    </table>
+  </div>`;
+}
+function mgrCreate(){
+  return `
+  <div class="page-head"><div><h1>Create an opportunity</h1><p class="sub">Define what's needed — the matching engine ranks candidates automatically once it's posted.</p></div></div>
+  <div class="panel">
+    <div class="form-grid">
+      <div class="form-field"><label>Title</label><input id="f-title" placeholder="e.g. Payments Reliability Engineer"></div>
+      <div class="form-field"><label>Type</label><select id="f-type"><option>Project</option></select></div>
+      <div class="form-field full"><label>Description</label><textarea id="f-desc" placeholder="What will the person actually do?"></textarea></div>
+      <div class="form-field"><label>Career goal domain</label>
+        <select id="f-domain">${['Backend Engineering','Frontend Engineering','AI Engineering','Product Engineering'].map(g=>`<option>${g}</option>`).join('')}</select>
+      </div>
+      <div class="form-field"><label>Minimum experience (years)</label><input id="f-exp" type="number" min="0" value="1"></div>
+      <div class="form-field"><label>Duration</label><input id="f-duration" placeholder="e.g. 10 weeks"></div>
+      <div class="form-field"><label>Open positions</label><input id="f-openpos" type="number" min="1" value="1"></div>
+      <div class="form-field full"><label>Required skills (comma-separated, format Skill:Level e.g. Java:4, SQL:3, Docker:2)</label>
+        <input id="f-skills" placeholder="Java:4, Spring Boot:4, SQL:3, Docker:2, Microservices:3">
+        <p class="hint">Level is out of 5. These drive 50% of the match score.</p>
+      </div>
+      <div class="form-field full"><label>Architectural Patterns (comma-separated)</label>
+        <input id="f-patterns" placeholder="e.g. Event-Driven Architecture, CQRS, Microservices, GitOps">
+        <p class="hint">Optional: List design patterns and architectural approaches used in this project.</p>
+      </div>
+    </div>
+    <button class="btn btn-primary" style="margin-top:20px;" onclick="createOpportunity()">Post opportunity</button>
+  </div>`;
+}
+async function createOpportunity(){
+  const title = document.getElementById('f-title').value.trim();
+  if(!title){ showToast('Give the opportunity a title'); return; }
+  const skillsRaw = document.getElementById('f-skills').value.trim();
+  const requiredSkills = skillsRaw.split(',').map(s=>s.trim()).filter(Boolean).map(pair=>{
+    const [name, lvl] = pair.split(':').map(x=>x.trim());
+    return { name, level: parseInt(lvl,10) || 3 };
+  });
+  const patternsRaw = document.getElementById('f-patterns').value.trim();
+  const patterns = patternsRaw.split(',').map(p=>p.trim()).filter(Boolean);
+  const opp = {
+    id: uid('o'), title, type: 'Project',
+    domain: document.getElementById('f-domain').value,
+    description: document.getElementById('f-desc').value.trim() || 'No description provided.',
+    requiredSkills, patterns, minExperience: parseInt(document.getElementById('f-exp').value,10) || 0,
+    duration: document.getElementById('f-duration').value.trim() || 'Not specified',
+    openPositions: parseInt(document.getElementById('f-openpos').value,10) || 1,
+    status:'open', createdBy: session.name, domainDept:'Engineering'
+  };
+  state.opportunities.push(opp);
+  await saveState();
+  ui.mgrTab = 'matching'; ui.mgrOppId = opp.id;
+  renderCurrentView();
+  showToast('Opportunity posted — candidates ranked below');
+}
+function mgrMatching(){
+  const opps = state.opportunities;
+  if(!opps.length) return `<div class="page-head"><h1>AI matching &amp; fit validation</h1></div><div class="panel empty-state"><h3>No opportunities yet</h3><p>Create one first.</p></div>`;
+  const activeId = ui.mgrOppId || opps[0].id;
+  const active = opps.find(o=>o.id===activeId);
+  const tabs = opps.map(o=>`<button class="tab ${o.id===activeId?'active':''}" onclick="setMgrOpp('${o.id}')">${o.title}${o.status==='closed'?' · closed':''}</button>`).join('');
+
+  const ranked = state.employees.map(e=>({e, m:computeMatch(e, active)})).sort((a,b)=>b.m.score-a.m.score);
+  const rows = ranked.map(({e,m})=>{
+    const overlooked = isOverlooked(e);
+    const applied = state.applications.find(a=>a.employeeId===e.id && a.opportunityId===active.id);
+    return `
+    <div class="ticket">
+      <div class="ticket-main">
+        <div class="row1"><h3>${escapePassportText(e.name)}</h3>${overlooked?'<span class="badge-flag">⚑ Potentially overlooked</span>':''}</div>
+        <p class="desc">${e.designation} · ${e.experienceYears} yrs · ${countType(e,'Project')} past projects</p>
+        <div class="reason-box"><b>Why:</b> ${matchReason(e, active, m)}</div>
+      </div>
+      <div class="ticket-side">
+        <div class="pct ${pctClass(m.score)}">${m.score}%</div>
+        <div class="lbl">fit score</div>
+        ${active.status==='closed' ? '<span class="badge-ok">Closed</span>' :
+          applied && applied.status==='assigned' ? '<span class="badge-ok">Assigned</span>' :
+          `<button class="btn btn-primary btn-small" onclick="openFitValidation('${e.id}','${active.id}')">Validate &amp; assign</button>`}
+      </div>
+    </div>`;
+  }).join('');
+
+  const validationHtml = ui.validation && ui.validation.oppId===active.id
+    ? renderFitValidation(active, ui.validation.empId, ranked)
+    : '';
+
+  return `
+  <div class="page-head"><div><h1>AI matching &amp; fit validation</h1><p class="sub">Candidates ranked by score. AI supports the decision — you make the final call.</p></div></div>
+  <div class="tabs">${tabs}</div>
+  <div class="panel">
+    <h2>${active.title}</h2>
+    <p class="panel-sub">${active.description} — ${active.openPositions} open position(s), ${active.duration}</p>
+  </div>
+  ${validationHtml}
+  ${rows}`;
+}
+function setMgrOpp(id){ ui.mgrOppId = id; renderCurrentView(); }
+function opportunityExposure(emp){
+  const projects = countType(emp,'Project');
+  const teamAverage = state.employees.reduce((sum, employee)=>sum + countType(employee,'Project'), 0) / state.employees.length;
+  return {projects, teamAverage, high:projects >= Math.ceil(teamAverage + 1.5)};
+}
+function hasFairnessConcern(emp){
+  const exposure = opportunityExposure(emp);
+  return exposure.high || equityScore(emp,state.employees) < orgAvgEquity() - 8;
+}
+function fitDecision(m, fairnessConcern){
+  if(m.skill < 55 || m.exp < 70) return {label:'Not recommended', className:'not-recommended', reason:'Skill or experience gap is too high for this opportunity.'};
+  if(fairnessConcern || m.work < 70) return {label:'Review required', className:'review', reason:'Strong fit, but workload or opportunity exposure needs manager review.'};
+  return {label:'Strong fit', className:'strong', reason:'Recommended to assign based on fit, readiness and available capacity.'};
+}
+function renderFitValidation(opp, empId, ranked){
+  const emp = state.employees.find(e=>e.id===empId);
+  const m = computeMatch(emp, opp);
+  const exposure = opportunityExposure(emp);
+  const fairnessConcern = hasFairnessConcern(emp);
+  const decision = fitDecision(m, fairnessConcern);
+  const alternatives = ranked.filter(item=>item.e.id!==empId && Math.abs(m.score-item.m.score)<=5).slice(0,3);
+  const factor = (label, value, color)=>`<div class="validation-factor"><span>${label}</span><div class="bar-track"><div class="bar-fill" style="width:${value}%; background:${color||'var(--primary)'};"></div></div><strong>${value}%</strong></div>`;
+  const compareRows = [
+    ['Skill match', item=>item.m.skill], ['Career alignment', item=>item.m.goal], ['Performance', item=>item.m.performance], ['Workload', item=>item.m.work], ['Opportunity exposure', item=>opportunityExposure(item.e).high ? 'High' : 'Low']
+  ];
+  return `<div class="panel validation-panel">
+    <div class="validation-head"><div><div class="validation-kicker">Fairness-aware fit validation</div><h2>Fit validation: ${escapePassportText(emp.name)}</h2><p class="panel-sub">Review the complete decision context before final assignment.</p></div><span class="validation-status ${decision.className}">${decision.label}</span></div>
+    <div class="validation-grid">
+      <div><h3 style="font-size:14px; margin-bottom:10px;">Why this candidate?</h3><p class="hint" style="margin:-5px 0 12px;">The fit score is a starting point; this panel adds context before a manager assigns the work.</p><div class="validation-factors">
+        ${factor('Skill match',m.skill)}${factor('Experience',m.exp)}${factor('Career alignment',m.goal)}${factor('Performance',m.performance)}${factor('Workload',m.work,m.work<70?'var(--warn)':'var(--primary)')}${factor('Exposure balance',exposure.high?35:82,exposure.high?'var(--warn)':'var(--primary)')}
+      </div><div class="reason-box"><b>Strongest advantage:</b> ${opp.requiredSkills.filter(rs=>empSkillLevel(emp,rs.name)>=rs.level).slice(0,3).map(rs=>rs.name+' L'+empSkillLevel(emp,rs.name)).join(', ') || 'No required skill currently meets the target level.'}<br><b>Evidence:</b> ${emp.skills.filter(skill=>classifySkill(emp,skill).type!=='claimed').slice(0,3).map(skill=>`${skill.name} (${classifySkill(emp,skill).type})`).join(', ') || 'Skills are currently self-declared.'}</div></div>
+      <div><h3 style="font-size:14px; margin-bottom:10px;">Fairness check</h3><div class="reason-box"><b>Opportunity exposure:</b> ${exposure.high?'High':'Balanced'}<br>${escapePassportText(emp.name)} has received ${exposure.projects} project(s), compared with a team average of ${exposure.teamAverage.toFixed(1)}.</div>
+        <div class="${fairnessConcern?'validation-note':'validation-note ok'}">${fairnessConcern?'⚠ Selected employee has received significantly more opportunities or has lower equity exposure than comparable teammates.':'✓ No significant fairness or workload concern detected.'}</div>
+        <p class="hint" style="margin-top:12px;">${decision.reason}</p>
+      </div>
+    </div>
+    ${alternatives.length ? `<div style="margin-top:16px;"><button class="btn btn-ghost btn-small" onclick="document.getElementById('candidate-compare').scrollIntoView({behavior:'smooth'})">Review other strong candidates</button></div><div class="candidate-compare" id="candidate-compare"><h3 style="font-size:14px; margin-bottom:8px;">${alternatives.length} other strong candidate(s) are within 5 points</h3><table><thead><tr><th>Factor</th><th>${escapePassportText(emp.name)}</th>${alternatives.map(item=>`<th>${escapePassportText(item.e.name)}</th>`).join('')}</tr></thead><tbody>${compareRows.map(([label,get])=>`<tr><td>${label}</td><td>${get({e:emp,m})}${typeof get({e:emp,m})==='number'?'%':''}</td>${alternatives.map(item=>`<td>${get(item)}${typeof get(item)==='number'?'%':''}</td>`).join('')}</tr>`).join('')}</tbody></table></div>` : ''}
+    <div style="margin-top:18px;"><h3 style="font-size:14px;">Decision reason</h3><div class="decision-options">${[['Best skill match','skill'],['Career alignment','career'],['Development opportunity','development'],['Workload availability','workload'],['Fairness consideration','fairness']].map(([label,value])=>`<label class="decision-option"><input type="radio" name="decision-reason" value="${value}" ${value==='skill'?'checked':''}>${label}</label>`).join('')}</div></div>
+    <div style="display:flex; gap:8px; margin-top:18px; flex-wrap:wrap;"><button class="btn btn-primary btn-small" onclick="confirmAssignment('${emp.id}','${opp.id}')" ${decision.className==='not-recommended'?'disabled':''}>Confirm assignment</button><button class="btn btn-ghost btn-small" onclick="ui.validation=null; renderCurrentView();">Cancel</button></div>
+  </div>`;
+}
+function openFitValidation(empId, oppId){
+  ui.mgrOppId = oppId;
+  ui.validation = {empId, oppId};
+  renderCurrentView();
+  window.scrollTo(0,0);
+}
+function openFairnessValidation(empId, oppId){
+  ui.mgrTab = 'matching';
+  openFitValidation(empId, oppId);
+}
+async function confirmAssignment(empId, oppId){
+  const emp = state.employees.find(e=>e.id===empId);
+  const opp = state.opportunities.find(o=>o.id===oppId);
+  let app = state.applications.find(a=>a.employeeId===empId && a.opportunityId===oppId);
+  const m = computeMatch(emp, opp);
+  const reasonInput = document.querySelector('input[name="decision-reason"]:checked');
+  const decisionReasons = {skill:'Best skill match',career:'Career alignment',development:'Development opportunity',workload:'Workload availability',fairness:'Fairness consideration'};
+  if(!app){
+    app = { id: uid('app'), employeeId:empId, opportunityId:oppId, status:'applied', matchScore:m.score, reason:matchReason(emp,opp,m), date:todayISO() };
+    state.applications.push(app);
+  }
+  app.status = 'assigned';
+  app.fitValidation = {status:fitDecision(m, hasFairnessConcern(emp)).label, decisionReason:decisionReasons[reasonInput ? reasonInput.value : 'skill'], validatedBy:session.name, validatedAt:new Date().toISOString(), fairnessConcern:hasFairnessConcern(emp)};
+  emp.opportunityHistory.push({ type: opp.type, title: opp.title, date: todayISO(), outcome:'in-progress' });
+  opp.requiredSkills.forEach(rs=>{
+    if(!emp.skills.find(s=>s.name===rs.name)) emp.skills.push({name:rs.name, level:2});
+    emp.passport.push({ skill: rs.name, source: opp.title, date: todayISO() });
+  });
+  opp.openPositions = Math.max(0, opp.openPositions - 1);
+  if(opp.openPositions === 0) opp.status = 'closed';
+  ui.validation = null;
+  await saveState();
+  renderCurrentView();
+  showToast(`${emp.name} assigned to ${opp.title}`);
+}
+function mgrFairnessReview(){
+  const opportunities = state.opportunities.filter(opp=>opp.status==='open');
+  const flagged = opportunities.flatMap(opp=>state.employees.map(emp=>({opp,emp,m:computeMatch(emp,opp)})))
+    .filter(item=>item.m.score>=70 && hasFairnessConcern(item.emp))
+    .sort((a,b)=>b.m.score-a.m.score);
+  const rows = flagged.map(({opp,emp,m})=>`
+    <div class="ticket">
+      <div class="ticket-main"><div class="row1"><h3>${escapePassportText(emp.name)}</h3><span class="badge-flag">Review fairness</span></div>
+        <p class="desc">${opp.title} · ${m.score}% fit · ${countType(emp,'Project')} project(s) received · ${emp.designation}</p>
+        <div class="reason-box"><b>Why review:</b> Strong capability match, but opportunity exposure is ${opportunityExposure(emp).high?'high':'below the team equity threshold'}.</div>
+      </div><div class="ticket-side"><div class="pct ${pctClass(m.score)}">${m.score}%</div><div class="lbl">fit score</div><button class="btn btn-primary btn-small" onclick="openFairnessValidation('${emp.id}','${opp.id}')">Review fit</button></div>
+    </div>`).join('');
+  return `<div class="page-head"><div><h1>Fairness review</h1><p class="sub">Strong candidates that need an equity and workload check before assignment.</p></div></div>
+    <div class="panel"><h2>Review queue</h2><p class="panel-sub">A high fit score is not an automatic assignment. Review the context for each flagged candidate.</p>${rows || '<div class="empty-state"><h3>No fairness reviews pending</h3><p>Open opportunities currently have no strong-fit exposure concerns.</p></div>'}</div>`;
+}
+function mgrAlerts(){
+  const overlooked = state.employees.filter(isOverlooked);
+  const items = overlooked.map(e=>`
+    <div class="alert-item"><div class="alert-dot"></div><div>
+      <div class="t">${escapePassportText(e.name)} has repeatedly missed relevant opportunities</div>
+      <div class="d">Strong match on open roles (82%+) but only ${countType(e,'Project')} recent project(s) and an equity score of ${equityScore(e,state.employees)}, below the team average of ${orgAvgEquity()}.</div>
+    </div></div>`).join('');
+  return `
+  <div class="page-head"><div><h1>Alerts</h1><p class="sub">Employees whose capability isn't matching their exposure.</p></div></div>
+  <div class="panel">${items || `<div class="empty-state"><h3>No alerts right now</h3><p>Everyone's exposure roughly matches their capability.</p></div>`}</div>`;
+}
+
+/* ======================================================================
+   HR VIEWS
+====================================================================== */
+function renderHR(){
+  switch(ui.hrTab){
+    case 'analytics': return hrAnalytics();
+    case 'equity': return hrEquity();
+    case 'talent': return hrTalent();
+    case 'reports': return hrReports();
+    default: return '';
+  }
+}
+function hrAnalytics(){
+  const totalEmp = state.employees.length;
+  const activeProjects = state.opportunities.filter(o=>o.type==='Project' && o.status==='open').length;
+  const mentorPrograms = state.opportunities.filter(o=>o.type==='Mentorship').length;
+
+  const avgEq = orgAvgEquity();
+  const gaps = state.employees.filter(isOverlooked).length;
+  return `
+  <div class="page-head"><div><h1>Organization analytics</h1><p class="sub">A live snapshot of opportunity activity across the org.</p></div></div>
+  <div class="kpi-row">
+    <div class="kpi"><div class="label">Total employees</div><div class="val">${totalEmp}</div></div>
+    <div class="kpi"><div class="label">Active projects</div><div class="val">${activeProjects}</div></div>
+    <div class="kpi"><div class="label">Mentorship programs</div><div class="val">${mentorPrograms}</div></div>
+
+    <div class="kpi"><div class="label">Avg. equity score</div><div class="val">${avgEq}</div></div>
+    <div class="kpi"><div class="label">Potential gaps</div><div class="val" style="color:var(--warn);">${gaps}</div></div>
+  </div>
+  <div class="panel">
+    <h2>Opportunities by status</h2>
+    ${['Project','Mentorship'].map(type=>{
+      const open = state.opportunities.filter(o=>o.type===type && o.status==='open').length;
+      const closed = state.opportunities.filter(o=>o.type===type && o.status==='closed').length;
+      const total = open+closed || 1;
+      return `<div style="margin-bottom:14px;">
+        <div style="display:flex; justify-content:space-between; font-size:13.5px; margin-bottom:6px;"><span>${type}</span><span style="color:var(--ink-soft);">${open} open · ${closed} closed</span></div>
+        <div class="bar-track"><div class="bar-fill" style="width:${open/total*100}%;"></div></div>
+      </div>`;
+    }).join('')}
+  </div>`;
+}
+function hrEquity(){
+  const depts = [...new Set(state.employees.map(e=>e.department))];
+  const deptRows = depts.map(d=>{
+    const emps = state.employees.filter(e=>e.department===d);
+    const avg = Math.round(emps.reduce((a,e)=>a+equityScore(e,state.employees),0)/emps.length);
+    return `<tr><td>${d}</td><td>${emps.length}</td><td>${avg}</td><td><div class="bar-track" style="width:120px;"><div class="bar-fill" style="width:${avg}%;"></div></div></td></tr>`;
+  }).join('');
+  const sorted = state.employees.slice().sort((a,b)=>equityScore(a,state.employees)-equityScore(b,state.employees));
+  return `
+  <div class="page-head"><div><h1>Equity monitoring</h1><p class="sub">A monitoring indicator across departments and individuals — not proof of fairness on its own.</p></div></div>
+  <div class="panel">
+    <h2>By department</h2>
+    <table><thead><tr><th>Department</th><th>Headcount</th><th>Avg equity</th><th></th></tr></thead><tbody>${deptRows}</tbody></table>
+  </div>
+  <div class="panel">
+    <h2>Individual scores, lowest first</h2>
+    <table><thead><tr><th>Employee</th><th>Department</th><th>Equity score</th><th>Status</th></tr></thead>
+    <tbody>${sorted.map(e=>`<tr><td>${escapePassportText(e.name)}</td><td>${e.department}</td><td>${equityScore(e,state.employees)}</td><td>${isOverlooked(e)?'<span class="badge-flag">⚑ Flagged</span>':'<span class="badge-ok">On track</span>'}</td></tr>`).join('')}</tbody></table>
+  </div>`;
+}
+function hrTalent(){
+  const overlooked = state.employees.filter(isOverlooked);
+  return `
+  <div class="page-head"><div><h1>Talent insights</h1><p class="sub">Employees who match well but aren't getting matching exposure.</p></div></div>
+  <div class="panel">
+    ${overlooked.length ? overlooked.map(e=>`
+      <div class="alert-item"><div class="alert-dot"></div><div>
+        <div class="t">${escapePassportText(e.name)} — ${e.designation}, ${e.department}</div>
+        <div class="d">Equity score ${equityScore(e,state.employees)} (org avg ${orgAvgEquity()}) · ${countType(e,'Project')} recent projects · strongly matches at least one open role.</div>
+      </div></div>`).join('') : `<div class="empty-state"><h3>No overlooked talent detected</h3><p>Opportunity distribution currently looks reasonably even.</p></div>`}
+  </div>`;
+}
+function hrReports(){
+  const totalApps = state.applications.length;
+  const assigned = state.applications.filter(a=>a.status==='assigned').length;
+  const auditRows = state.applications.filter(a=>a.status==='assigned' && a.fitValidation).map(a=>{
+    const emp = state.employees.find(e=>e.id===a.employeeId);
+    const opp = state.opportunities.find(o=>o.id===a.opportunityId);
+    return `<tr><td>${emp ? escapePassportText(emp.name) : 'Unknown'}</td><td>${opp ? opp.title : 'Unknown'}</td><td>${a.fitValidation.status}</td><td>${a.fitValidation.decisionReason}</td><td>${escapePassportText(a.fitValidation.validatedBy)}</td></tr>`;
+  }).join('');
+  return `
+  <div class="page-head"><div><h1>Reports</h1><p class="sub">A quick export-style summary of current platform activity.</p></div></div>
+  <div class="panel">
+    <h2>Summary</h2>
+    <table>
+      <tbody>
+        <tr><td>Total employees</td><td>${state.employees.length}</td></tr>
+        <tr><td>Total opportunities posted</td><td>${state.opportunities.length}</td></tr>
+        <tr><td>Total applications</td><td>${totalApps}</td></tr>
+        <tr><td>Assignments made</td><td>${assigned}</td></tr>
+        <tr><td>Average org equity score</td><td>${orgAvgEquity()}</td></tr>
+        <tr><td>Employees flagged as overlooked</td><td>${state.employees.filter(isOverlooked).length}</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="panel">
+    <h2>Assignment decision audit</h2>
+    <p class="panel-sub">Why each final assignment was approved and who validated it.</p>
+    ${auditRows ? `<table><thead><tr><th>Employee</th><th>Opportunity</th><th>Outcome</th><th>Reason</th><th>Validated by</th></tr></thead><tbody>${auditRows}</tbody></table>` : `<div class="empty-state"><h3>No assignment decisions yet</h3><p>Validated assignments will appear here for HR review.</p></div>`}
+  </div>`;
+}
+
+/* ======================================================================
+   TOAST + INIT
+====================================================================== */
+let toastTimer;
+function showToast(msg){
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(()=>t.classList.remove('show'), 2600);
+}
+
+(async function init(){
+  await loadState();
+  go('landing');
+})();
+</script>
+</body>
+</html>
